@@ -1,0 +1,973 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CurvaStore.bundle.scp.css",
+      "PackagePath": "staticwebassets\\CurvaStore.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\css\\CurvaDashBoardCss\\style.css",
+      "PackagePath": "staticwebassets\\css\\CurvaDashBoardCss\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\css\\CurvaStoreCss\\style.css",
+      "PackagePath": "staticwebassets\\css\\CurvaStoreCss\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\07icn9ql.png",
+      "PackagePath": "staticwebassets\\images\\07icn9ql.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\110378IMG-20240627-WA0009.jpg",
+      "PackagePath": "staticwebassets\\images\\110378IMG-20240627-WA0009.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\1441128009_1.jpeg",
+      "PackagePath": "staticwebassets\\images\\1441128009_1.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\1720037116-IMG-20240702-WA0043.jpg",
+      "PackagePath": "staticwebassets\\images\\1720037116-IMG-20240702-WA0043.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\1720470395-WhatsApp Image 2024-07-08 at 23.01.22_fd7f3687 (Large).jpg",
+      "PackagePath": "staticwebassets\\images\\1720470395-WhatsApp Image 2024-07-08 at 23.01.22_fd7f3687 (Large).jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\1720801392-IMG-20240712-WA0052.jpg",
+      "PackagePath": "staticwebassets\\images\\1720801392-IMG-20240712-WA0052.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\1720801572-IMG-20240712-WA0055.jpg",
+      "PackagePath": "staticwebassets\\images\\1720801572-IMG-20240712-WA0055.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\1720992975-WhatsApp Image 2024-07-14 at 23.58.48_d9242cf6.jpg",
+      "PackagePath": "staticwebassets\\images\\1720992975-WhatsApp Image 2024-07-14 at 23.58.48_d9242cf6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\1721238020-IMG-20240717-WA0046.jpg",
+      "PackagePath": "staticwebassets\\images\\1721238020-IMG-20240717-WA0046.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\1721249937-WhatsApp Image 2024-07-17 at 23.34.11_0989e849.jpg",
+      "PackagePath": "staticwebassets\\images\\1721249937-WhatsApp Image 2024-07-17 at 23.34.11_0989e849.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\1722007900-31189274e1545597087c7e35f6b00b4d885ef822.jpg",
+      "PackagePath": "staticwebassets\\images\\1722007900-31189274e1545597087c7e35f6b00b4d885ef822.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\1722007903-b57087d206c86cb9287612af6fe789eadf73a557.jpg",
+      "PackagePath": "staticwebassets\\images\\1722007903-b57087d206c86cb9287612af6fe789eadf73a557.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\1722027213-IMG-20240726-WA0137.jpg",
+      "PackagePath": "staticwebassets\\images\\1722027213-IMG-20240726-WA0137.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\1722030240-WhatsApp Image 2024-07-26 at 19.36.01_ee03bbe6.jpg",
+      "PackagePath": "staticwebassets\\images\\1722030240-WhatsApp Image 2024-07-26 at 19.36.01_ee03bbe6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\1722090914-WhatsApp Image 2024-07-27 at 16.53.17_2df9971d (Large).jpg",
+      "PackagePath": "staticwebassets\\images\\1722090914-WhatsApp Image 2024-07-27 at 16.53.17_2df9971d (Large).jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\1722260848-WhatsApp Image 2024-07-29 at 16.34.38_9a3cef30.jpg",
+      "PackagePath": "staticwebassets\\images\\1722260848-WhatsApp Image 2024-07-29 at 16.34.38_9a3cef30.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\1722264475-IMG-20240729-WA0045.jpg",
+      "PackagePath": "staticwebassets\\images\\1722264475-IMG-20240729-WA0045.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\1722267998-WhatsApp Image 2024-07-29 at 17.37.43_024ce4dd.jpg",
+      "PackagePath": "staticwebassets\\images\\1722267998-WhatsApp Image 2024-07-29 at 17.37.43_024ce4dd.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\1831959.png",
+      "PackagePath": "staticwebassets\\images\\1831959.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\23109928810_1.jpeg",
+      "PackagePath": "staticwebassets\\images\\23109928810_1.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\25058714.png",
+      "PackagePath": "staticwebassets\\images\\25058714.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\30083645.png",
+      "PackagePath": "staticwebassets\\images\\30083645.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\30270729.png",
+      "PackagePath": "staticwebassets\\images\\30270729.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\35638912.png",
+      "PackagePath": "staticwebassets\\images\\35638912.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\3804825.png",
+      "PackagePath": "staticwebassets\\images\\3804825.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\40001225066_4.jpeg",
+      "PackagePath": "staticwebassets\\images\\40001225066_4.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\41134254304828010_1 copy 3.jpg",
+      "PackagePath": "staticwebassets\\images\\41134254304828010_1 copy 3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\42404327782_1.jpeg",
+      "PackagePath": "staticwebassets\\images\\42404327782_1.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\42876626.png",
+      "PackagePath": "staticwebassets\\images\\42876626.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\445805781363761_1.jpeg",
+      "PackagePath": "staticwebassets\\images\\445805781363761_1.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\4723WhatsApp Image 2024-06-28 at 00.47.58_765f547d.jpg",
+      "PackagePath": "staticwebassets\\images\\4723WhatsApp Image 2024-06-28 at 00.47.58_765f547d.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\53295525066_1.jpeg",
+      "PackagePath": "staticwebassets\\images\\53295525066_1.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\53600416.png",
+      "PackagePath": "staticwebassets\\images\\53600416.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\53997915.png",
+      "PackagePath": "staticwebassets\\images\\53997915.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\60384133.png",
+      "PackagePath": "staticwebassets\\images\\60384133.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\75541827782_4.jpeg",
+      "PackagePath": "staticwebassets\\images\\75541827782_4.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\78380028810_4.jpeg",
+      "PackagePath": "staticwebassets\\images\\78380028810_4.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\7w08ay7l.png",
+      "PackagePath": "staticwebassets\\images\\7w08ay7l.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\823959FC Barcelona.png",
+      "PackagePath": "staticwebassets\\images\\823959FC Barcelona.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\8395108987193761_3.jpeg",
+      "PackagePath": "staticwebassets\\images\\8395108987193761_3.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\85093060186028010_4.jpeg",
+      "PackagePath": "staticwebassets\\images\\85093060186028010_4.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\8635328.png",
+      "PackagePath": "staticwebassets\\images\\8635328.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\93247528009_4.jpeg",
+      "PackagePath": "staticwebassets\\images\\93247528009_4.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\937524WhatsApp Image 2024-06-28 at 21.29.14_fd5fb7e5.jpg",
+      "PackagePath": "staticwebassets\\images\\937524WhatsApp Image 2024-06-28 at 21.29.14_fd5fb7e5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\Vector.2025f997.svg",
+      "PackagePath": "staticwebassets\\images\\Vector.2025f997.svg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\accessories.b2cca71d.png",
+      "PackagePath": "staticwebassets\\images\\accessories.b2cca71d.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\blog_1268.jpg",
+      "PackagePath": "staticwebassets\\images\\blog_1268.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\blog_1298.jpg",
+      "PackagePath": "staticwebassets\\images\\blog_1298.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\blog_1300.jpg",
+      "PackagePath": "staticwebassets\\images\\blog_1300.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\blog_1301.jpg",
+      "PackagePath": "staticwebassets\\images\\blog_1301.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\cover_pages.f0f592cc.png",
+      "PackagePath": "staticwebassets\\images\\cover_pages.f0f592cc.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (1).png",
+      "PackagePath": "staticwebassets\\images\\download (1).png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (10).png",
+      "PackagePath": "staticwebassets\\images\\download (10).png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (11).png",
+      "PackagePath": "staticwebassets\\images\\download (11).png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (12).png",
+      "PackagePath": "staticwebassets\\images\\download (12).png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (13).png",
+      "PackagePath": "staticwebassets\\images\\download (13).png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (14).png",
+      "PackagePath": "staticwebassets\\images\\download (14).png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (2).png",
+      "PackagePath": "staticwebassets\\images\\download (2).png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (3) - Copy.png",
+      "PackagePath": "staticwebassets\\images\\download (3) - Copy.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (3).png",
+      "PackagePath": "staticwebassets\\images\\download (3).png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (4).png",
+      "PackagePath": "staticwebassets\\images\\download (4).png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (5).png",
+      "PackagePath": "staticwebassets\\images\\download (5).png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (6).png",
+      "PackagePath": "staticwebassets\\images\\download (6).png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (7).png",
+      "PackagePath": "staticwebassets\\images\\download (7).png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (8).png",
+      "PackagePath": "staticwebassets\\images\\download (8).png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (9).png",
+      "PackagePath": "staticwebassets\\images\\download (9).png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download(4).png",
+      "PackagePath": "staticwebassets\\images\\download(4).png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download.png",
+      "PackagePath": "staticwebassets\\images\\download.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\ellipse.8de0993b.png",
+      "PackagePath": "staticwebassets\\images\\ellipse.8de0993b.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\football.766d6189.png",
+      "PackagePath": "staticwebassets\\images\\football.766d6189.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\main-cover.3543edb9.png",
+      "PackagePath": "staticwebassets\\images\\main-cover.3543edb9.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\our-story.7d98795c.png",
+      "PackagePath": "staticwebassets\\images\\our-story.7d98795c.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\pro_57962.jpeg",
+      "PackagePath": "staticwebassets\\images\\pro_57962.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\pro_58687.jpg",
+      "PackagePath": "staticwebassets\\images\\pro_58687.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\pro_59091.jpeg",
+      "PackagePath": "staticwebassets\\images\\pro_59091.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\profile.jpg",
+      "PackagePath": "staticwebassets\\images\\profile.jpg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\qghsp0eg.png",
+      "PackagePath": "staticwebassets\\images\\qghsp0eg.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\service-icon.png",
+      "PackagePath": "staticwebassets\\images\\service-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\social.689c50bd.png",
+      "PackagePath": "staticwebassets\\images\\social.689c50bd.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\th.jpeg",
+      "PackagePath": "staticwebassets\\images\\th.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\years.f1afad53.png",
+      "PackagePath": "staticwebassets\\images\\years.f1afad53.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\ytj6lv8g.png",
+      "PackagePath": "staticwebassets\\images\\ytj6lv8g.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\js\\CurvaDashBoardJS\\script.js",
+      "PackagePath": "staticwebassets\\js\\CurvaDashBoardJS\\script.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\js\\CurvaStoreJS\\script.js",
+      "PackagePath": "staticwebassets\\js\\CurvaStoreJS\\script.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\CurvaDashBoard\\boostrap\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\css\\all.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\all.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\css\\all.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\all.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\css\\brands.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\brands.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\css\\brands.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\brands.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\css\\fontawesome.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\fontawesome.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\css\\fontawesome.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\fontawesome.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\css\\regular.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\regular.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\css\\regular.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\regular.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\css\\solid.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\solid.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\css\\solid.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\solid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\css\\svg-with-js.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\svg-with-js.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\css\\svg-with-js.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\svg-with-js.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\css\\v4-shims.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\v4-shims.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\css\\v4-shims.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\v4-shims.min.css"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\js\\all.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\all.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\js\\all.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\all.min.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\js\\brands.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\brands.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\js\\brands.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\brands.min.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\js\\conflict-detection.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\conflict-detection.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\js\\conflict-detection.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\conflict-detection.min.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\js\\fontawesome.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\fontawesome.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\js\\fontawesome.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\fontawesome.min.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\js\\regular.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\regular.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\js\\regular.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\regular.min.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\js\\solid.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\solid.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\js\\solid.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\solid.min.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\js\\v4-shims.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\v4-shims.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\js\\v4-shims.min.js",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\js\\v4-shims.min.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\sprites\\brands.svg",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\sprites\\brands.svg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\sprites\\regular.svg",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\sprites\\regular.svg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\sprites\\solid.svg",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\sprites\\solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\webfonts\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-brands-400.eot"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\webfonts\\fa-brands-400.svg",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-brands-400.svg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\webfonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\webfonts\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-brands-400.woff"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\webfonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\webfonts\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-regular-400.eot"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\webfonts\\fa-regular-400.svg",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-regular-400.svg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\webfonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\webfonts\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-regular-400.woff"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\webfonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\webfonts\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-solid-900.eot"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\webfonts\\fa-solid-900.svg",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-solid-900.svg"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\webfonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\webfonts\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-solid-900.woff"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\font-awesome\\webfonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CurvaStore.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CurvaStore.props",
+      "PackagePath": "build\\CurvaStore.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CurvaStore.props",
+      "PackagePath": "buildMultiTargeting\\CurvaStore.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CurvaStore.props",
+      "PackagePath": "buildTransitive\\CurvaStore.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

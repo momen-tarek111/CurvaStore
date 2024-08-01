@@ -1,0 +1,158 @@
+﻿@{
+	Layout = "_CurvaStoreLayout";
+}
+@model ContactUs
+<div class="cover_header_page">
+    <div class="overlay-cover-page d-flex align-items-end">
+        <div class="container de">
+            <div class="row">
+                <div class="col-12">
+                    <div class="bg-transparent iq-card ">
+                        <div class="row d-flex align-items-center mb-2">
+                            <div class="col-lg-12">
+                                <div class="d-flex align-items-center bg-transparent">
+                                    <ol class="breadcrumb bg-transparent mb-0 mt-1">
+                                        <li class="breadcrumb-item text-initial">
+                                            <a hasp-controller="Home" asp-action="index" class="router-link-active home" target="_self">
+                                                <i class="fas fa-home"></i>Home
+                                            </a>
+                                        </li>
+                                        <li class="breadcrumb-item text-white active">
+                                            <span aria-current="location">contact Us </span>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="content-page ml-0">
+        <div class="container">
+            <div class="row  p-3 justify-content-between">
+                <div class="mb-5 col-lg-4" style="text-align: initial;">
+                    <div class="row mb-5">
+                        <div class="col">
+                            <span class="font-size-16">
+                                <span>
+                                    <span class="title-colored-part">Contact </span>
+                                </span>
+                                <span>
+                                    <span class="title-mode-part">Information</span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-12">
+                            <p>
+                                <i class="text-warning fas fa-phone-alt"></i> For complaints &amp; suggections call <span class="text-warning">01001459180</span>
+                            </p>
+                        </div>
+                        <div class="col-lg-12">
+                            <p>
+                                <i class="text-warning far fa-clock"></i> Daily working hours from <span class="text-warning">12:00 PM</span> to <span class="text-warning">12:00 AM</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="city-box">Nasr City</div>
+                        <div class="col-lg-12">
+                            <p><i class="text-warning fas fa-phone-alt"></i> 01283954754 </p>
+                        </div>
+                        <div class="col-lg-12">
+                            <p style="text-align: justify;">
+                                <i class="text-warning fas fa-map-marker-alt"></i> Mahatet El Madrasa Street, in front of Martyr Ismail Fahmy Primary School next to El Rasool Mosque, Al Hay Al Asher, Nasr City, Cairo Governorate
+                            </p>
+                        </div>
+                        <div class="col-lg-12">
+                            <a href="https://goo.gl/maps/RTwKwr2EafApZwhT9" target="_blank">
+                                <button type="button" class="btn curva-icon-btn btn-secondary"><i class="fas fa-map-marked-alt"></i> Location</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 mt-5">
+                    <div class="row justify-content-center contact-form-card mt-5">
+                        <div class="col-lg-7 mt-4">
+                            <span>
+                                <form class="curva-form curva-form-up mb-5" method="post" asp-controller="home" asp-action="SubmitMeassage">
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <span class="font-size-16">
+                                                <span>
+                                                    <span class="title-colored-part">Contact </span>
+                                                </span>
+                                                <span>
+                                                    <span class="title-mode-part">Form</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-3 col-lg-12">
+                                            <div role="group" class="form-group" id="__BVID__66">
+                                               <div>
+                                                    <span>
+                                                        <div class="curva-control-input">
+                                                            <input style="background-color: white;" autocomplete="off"  type="text"  placeholder="Full Name" class="form-control" asp-for="FullName">
+                                                        </div>
+                                                        <span asp-validation-for="FullName" class="text-danger"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 col-lg-12">
+                                            <div role="group" class="form-group" id="__BVID__69">
+                                                <!---->
+                                                <div>
+                                                    <span>
+                                                        <div class="curva-control-input">
+                                                            <input style="background-color: white;" autocomplete="off" id="" type="text" placeholder="Email Address" class="form-control" asp-for="Email">
+                                                        </div>
+                                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                                    </span><!----><!----><!---->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 col-lg-12">
+                                            <div role="group" class="form-group" id="__BVID__72">
+                                                <!---->
+                                                <div>
+                                                    <span>
+                                                        <div class="curva-control-input">
+                                                            <input style="background-color: white;" autocomplete="off"  type="text" max="" placeholder="Mobile Number" class="form-control" asp-for="Phone" >
+                                                        </div>
+                                                        <span asp-validation-for="Phone" class="text-danger"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 col-lg-12">
+                                            <div role="group" class="form-group">
+                                                
+                                                <div>
+                                                    <span>
+                                                        <textarea style="background-color: white; height: 120px;" placeholder="Message.." rows="2" wrap="soft" class="form-control curva-textarea" asp-for="Message"></textarea>
+                                                    </span>
+                                                    <span asp-validation-for="Message" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <button type="submit" class="btn curva-granola-btn small-rounded-btn btn-secondary btn-block">Send Message</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

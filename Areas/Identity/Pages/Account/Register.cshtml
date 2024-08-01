@@ -1,0 +1,194 @@
+﻿@page
+@model RegisterModel
+@*
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h2>Create a new account.</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Email">Email</label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label asp-for="Input.Password">Password</label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+        </form>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h3>Use another service to register.</h3>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
+                            about setting up this ASP.NET application to support logging in via external services</a>.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins!)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+</div>
+ *@
+<style>
+    select {
+        width: 100%;
+        height: 45px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 5px 10px;
+    }
+</style>
+<div class="cover_header_page">
+    <div class="overlay-cover-page d-flex align-items-end">
+        <div class="container de">
+            <div class="row">
+                <div class="col-12">
+                    <div class="bg-transparent iq-card ">
+                        <div class="row d-flex align-items-center mb-2">
+                            <div class="col-lg-12">
+                                <div class="d-flex align-items-center bg-transparent">
+                                    <ol class="breadcrumb bg-transparent mb-0 mt-1">
+                                        <li class="breadcrumb-item text-initial">
+                                            <a asp-controller="Home" asp-action="index" class="router-link-active home" target="_self">
+                                                <i class="fas fa-home"></i>Home
+                                            </a>
+                                        </li>
+                                        <li class="breadcrumb-item text-white active">
+                                            <span aria-current="location"> Register </span>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+
+                <div class="p-4 mt-5 login">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-9 col-11">
+                            <div class="text-center">
+                                <span class="fs-6">
+                                    <span>
+                                        <span class="title-colored-part">Create </span>
+                                    </span>
+                                    <span>
+                                        <span class="title-mode-part">Account</span>
+                                    </span>
+                                </span>
+                                <span>
+                                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post" class="pt-4">
+                                        <div class="row">
+                                            <div class="mb-3 col-lg-12">
+                                                <input autocomplete="off" id="" type="text" asp-for="Input.FullName" placeholder="Full Name" class="form-control">
+                                                <span asp-validation-for="Input.FullName" class="text-danger"></span>
+                                            </div>
+                                            <div class="mb-3 col-lg-12">
+                                                <input autocomplete="off" id="" type="text" asp-for="Input.Email" placeholder="Email Address" class="form-control">
+                                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                            </div>
+                                            <div class="mb-3 col-lg-12">
+                                                <input autocomplete="off" id="" type="text" asp-for="Input.MobileNumber" placeholder="Mobile Number" class="form-control">
+                                                <span asp-validation-for="Input.MobileNumber" class="text-danger"></span>
+                                            </div>
+                                            <div class="mb-3 col-lg-6">
+                                                <input autocomplete="off" type="date" asp-for="Input.date" max="@DateTime.Now" placeholder="Date Of Birth" class="form-control">
+                                                <span asp-validation-for="Input.date" class="text-danger"></span>
+                                            </div>
+                                            <div class="mb-3 col-lg-6">
+                                                <select asp-for="Input.Gender">
+                                                    <option value="" disabled selected>-- Select Gender --</option>
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                                <span asp-validation-for="Input.Gender" class="text-danger"></span>
+                                            </div>
+                                            <div class="mb-3 col-lg-12">
+                                                <input autocomplete="off" id="" type="password" asp-for="Input.Password" placeholder="Password" class="form-control">
+                                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                            </div>
+                                            <div class="mb-3 col-lg-12">
+                                                <input autocomplete="off" id="" type="password" asp-for="Input.ConfirmPassword" placeholder="Repate Password" class="form-control">
+                                                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                            </div>
+                                            @* <div class="mb-3 col-lg-12">
+                                                <div>
+                                                    <input type="checkbox" name="color" class="form-check-input" value="true">
+                                                    <label class="text">
+                                                        <span class="text-gray font-size-16 mx-2">I have read and accept Terms of Conditions</span>
+                                                    </label>
+                                                </div>
+                                            </div> *@
+                                            <div class="col-lg-12">
+                                                <button  style="background-color: #d1ab5f;" type="submit" class="btn btn-signup w-100 ">
+                                                    <span class="fs-6">Register</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </span>
+                                <div class="row">
+                                    <div class="mt-4 col-lg-12">
+                                        <div class="d-flex">
+                                            <span class="me-2 text-dark">Already have an account ?</span>
+                                            <a asp-area="Identity" asp-page="/Account/Login">
+                                                <span style="color: #d1ab5f;">Login</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,429 @@
+﻿@using Microsoft.AspNetCore.Identity
+@{
+	Layout = "_CurvaStoreLayout";
+}
+@model SingaleProductModelView
+@inject SignInManager<CurvaUser> SignInManager
+<div class="cover_header_page">
+    <div class="overlay-cover-page d-flex align-items-end">
+        <div class="container de">
+            <div class="row">
+                <div class="col-12">
+                    <div class="bg-transparent iq-card ">
+                        <div class="row d-flex align-items-center mb-2">
+                            <div class="col-lg-12">
+                                <div class="d-flex align-items-center bg-transparent">
+                                    <ol class="breadcrumb bg-transparent mb-0 mt-1">
+                                        <li class="breadcrumb-item text-initial">
+                                            <a asp-controller="Home" asp-action="index" class="router-link-active home" target="_self">
+                                                <i class="fas fa-home"></i>Home
+                                            </a>
+                                        </li>
+                                        <li class="breadcrumb-item text-white">
+                                            <a asp-controller="Home" asp-action="Products" asp-route-id="0" class="router-link-active blogs" target="_self"> Products </a>
+                                        </li>
+                                        <li class="breadcrumb-item text-white active">
+                                            <span aria-current="location"> Product Details </span>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="container">
+        <div class="row pt-5">
+            <div class="col-lg-5 col-12 mb-5">
+                <div class="row">
+                    <div class="col col-12 justify-content-center">
+                        <img style="width: 100%;" src="~/images/@Model.product.Img" alt="" class="rounded-3">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 col-12">
+                <div class="d-flex  align-items-start justify-content-between">
+                    <h5 style="color: #d1ab5f;" class=" font-weight-bold">@Model.product.Name</h5>
+                </div>
+                <div class="mt-3 d-flex justify-content-between align-items-start">
+                    <div class="d-flex justify-content-between align-items-center gap-5">
+                        <a asp-controller="Home" asp-action="Products" asp-route-id="@Model.product.CategoroyID" class="p">
+                            <span class="badge category_badge p-2  px-4 font-size-14 font-weight-light badge-secondary">@Model.product.category.Name</span>
+                        </a>
+                        <img src="./images/download (10).png" alt="">
+                    </div>
+                </div>
+                <div style="background-color: #e5e6ea; border-radius: 20px;" class="mt-3 d-flex justify-content-between align-items-center gap-1 flex-wrap py-3 px-3">
+                    <span class=" d-flex justify-content-between align-items-center gap-3  fs-5">
+                        <span class="text-secondary fs-6">Product Code</span>@Model.product.code
+                    </span>
+                    @{
+                        if (Model.product.BrandName.ToLower() !="e" )
+                        {
+                                                <a style="cursor:none;">
+                                                    <span class="badge category_badge px-3 py-2 d-flex gap-2 text-secondary fs-5 fw-normal badge-secondary">Brand <span style="color: #d1ab5f;">@Model.product.BrandName</span></span>
+                                                </a>
+                        }                              
+                        if (Model.product.ClubName.ToLower() != "e")
+                        {                              
+                                                <a style="cursor:none;">
+                                                    <span class="badge category_badge px-3 py-2 d-flex gap-2 text-secondary fs-5 fw-normal badge-secondary">Club <span style="color: #d1ab5f;">@Model.product.ClubName</span></span>
+                                                </a>
+                        }                              
+                        if (Model.product.Season.ToLower() != "e")
+                        {                              
+                                                <a style="cursor:none;">
+                                                    <span class="badge category_badge px-3 py-2 d-flex gap-2 text-secondary fs-5 fw-normal badge-secondary"> Season   <span style="color: #d1ab5f;"> 2024/25 </span></span>
+                                                </a>
+                        }
+                    }
+                </div>
+                <div>
+                    @{
+                        if (Model.product.Description.ToLower() != "e")
+                        {
+                                                <p class=" fs-5 mt-4 mb-5">
+                                                    @Model.product.Description
+                                                </p>
+                        }
+                    }
+                    <div class="prop d-flex justify-content-start gap-4 align-items-center my-4">
+                        <label class="mb-0 text-secondary fs-6 text-nowrap">Select Size <span class="text-danger">*</span></label>
+                        <div class="prop_details_size d-flex justify-content-start gap-4 flex-wrap">
+                            @{
+                                int i = 0;
+                                string[] sizes = new string[5000];
+                                int sID = 0;
+                                foreach(var item in Model.colorSizes)
+                                {
+                                    if (!sizes.Contains(item.Size))
+                                    {
+                                                            <span class="badge s-Size category_badge p-2 px-3 cursor-pointer badge-secondary" sID="@sID">
+                                                                <span>@item.Size.ToUpper()</span>
+                                                            </span>
+                                        sizes[i] = item.Size;
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                                            <span class="badge s-Size d-none category_badge p-2 px-3 cursor-pointer badge-secondary" sID="@sID">
+                                                                <span>@item.Size.ToUpper()</span>
+                                                            </span>
+                                    }
+                                    sID++;
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="prop d-none color-div justify-content-start gap-4 align-items-center my-4">
+                        <label class="mb-0 text-secondary fs-6">Select Color<span class="text-danger">* </span></label>
+                        <div class="d-flex justify-content-start gap-1">
+                            @{
+                                int cID = 0;
+                                foreach(var item in Model.colorSizes)
+                                {
+                                                        <div class="products_color_outside d-none" cID="@cID">
+                                                            <span class="products_color_inside d-inline-block" style="background-color:@item.color"></span>
+                                                        </div>
+                                    cID++;
+                                }
+                            }                          
+                        </div>
+                    </div>
+                    <div class="prop d-none Quantity justify-content-start gap-4 align-items-center my-4">
+                        <label class="mb-0 text-secondary font-size-14"> Quantity<span class="text-danger">*</span></label>
+                        <div class="d-flex">
+                            <button type="button" disabled="disabled" class="btn table-quantity-btn btn-secondary btn-decrease disabled" onclick="decreaseQ()">-</button>
+                            @{
+                                int qID = 0;
+                                foreach(var item in Model.colorSizes)
+                                {
+                                                        <input value="1" max="@item.Quantity" disabled="disabled" class="table-quantity-text d-none q-input" qID="@qID">
+                                    qID ++;
+                                }
+                            }
+                            <button type="button"  class="btn table-quantity-btn btn-secondary btn-increase" onclick="increaseQ()">+</button>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-5">
+                        @if (Model.product.OldPrice != 0)
+                        {
+                            <div class="d-flex">
+                                <div style="background-color: #c35858; border-radius: 10px;" class="me-1  p-1 px-3">
+                                    <img src="~/images/download (11).png" alt="">
+                                </div>
+                                <p style="background-color: #9c4a4a; color: #fff;" class="m-0  p-1 px-3 fw-bold fs-6 p-0 d-flex justify-content-center align-items-center"> Get @(Math.Floor(((Model.product.OldPrice-Model.product.price)/Model.product.OldPrice)*100))% Discount now! </p>
+                            </div>
+                        }
+                        
+                        <p class="text-secondary select-c-and-s fs-6 d-flex flex-grow-1 justify-content-end gap-2 text-danger">Select size and color first to see the product's availability*</p>
+                        <p class="text-secondary Av d-none fs-6 d-flex flex-grow-1 justify-content-end gap-2"> Availability <span style="color: #27b345;"> In stock</span></p>
+                    </div>
+                    <div style="background-color: #efefef; border-radius: 15px;" class="px-4 py-3  d-flex justify-content-between align-items-center flex-column flex-md-row gap-2 flex-column mb-5">
+                        <span class="text-white  d-flex justify-content-between align-items-center gap-2">
+                            <span class="text-secondary">Unit cost</span>
+                            <span>
+                                <span style="color: #d1ab5f;" class=" fs-4 fw-bold me-5">
+                                    @Model.product.price <span class="text-secondary fs-6">EGP</span>
+                                </span>
+                                @if (Model.product.OldPrice != 0)
+                                {
+                                    <span class="text-secondary fs-5 text-decoration-line-through me-4">
+                                        <span class="fw-bold">@Model.product.OldPrice</span> EGP
+                                    </span>
+                                }
+                            </span>
+                        </span>
+                        <div class="d-none cartbuttons justify-content-between gap-3">
+                            @* <button type="button" class="btn add_to_cart_button p-2 px-3 ">
+                                <span class="fs-6">
+                                    <img src="./images/download (12).png" alt=""> Add To Cart
+                                </span>
+                            </button> *@
+                            @{
+                                if (SignInManager.IsSignedIn(User))
+                                {
+                                    <button style="background-color: #d1ab5f;" type="button" class="btn p-2 px-3 buy fs-6 GoToCart">Buy Now</button>
+                                }
+                                else
+                                {
+                                    <form class="d-flex ">
+                                        <a asp-area="Identity" asp-page="/Account/Login">
+                                            <button style="background-color: #d1ab5f;" type="button" class="btn p-2 px-3 buy fs-6">Buy Now</button>
+                                        </a>
+                                    </form>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<input type="number" class="d-none id-pro" value="@Model.product.Id"/>
+<script>
+    
+    // $(document).ready(function () {
+    //     var mm = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.colorSizes));
+    //     mm.id
+    //    });
+    var sizesproducts = document.querySelectorAll(".s-Size");
+    var colorDiv = document.querySelector(".color-div");
+    var colorsproducts = document.querySelectorAll(".products_color_outside");
+    var qDiv = document.querySelector(".Quantity");
+    var cb = document.querySelector(".cartbuttons");
+    var SAndC = document.querySelector(".select-c-and-s");
+    var instock = document.querySelector(".Av");
+    var qinputs = document.querySelectorAll(".q-input");
+    
+    sizesproducts.forEach(m => m.addEventListener("click", function () {
+        if (!m.classList.contains("selected_size")) {
+            sizesproducts.forEach(n => {
+                if (n.classList.contains("selected_size")) {
+                    n.classList.remove("selected_size");
+                }
+            })
+            colorsproducts.forEach(m => {
+                m.classList.remove("selected_color");
+            })
+            m.classList.add("selected_size");
+            var buttonin = document.querySelector(".btn-increase");
+            var buttondec = document.querySelector(".btn-decrease");
+
+            buttonin.removeAttribute("disabled");
+            buttonin.classList.remove("disabled");
+            buttondec.classList.add("disabled")
+            buttondec.setAttribute("disabled", "disabled")
+            colorsproducts.forEach(cls => {
+                cls.classList.add("d-none");
+            })
+            var sId = m.innerHTML
+            sizesproducts.forEach(cs => {
+                // console.log(cs.innerHTML+cs.getAttribute("sID"))
+
+                if (cs.innerHTML == sId) {
+                    colorsproducts.forEach(sc =>{
+                        if (sc.getAttribute("cID") == cs.getAttribute("sID")) {
+                            sc.classList.remove("d-none");
+                        }
+                    })
+                }
+            })
+            if (colorDiv.classList.contains("d-none")) {
+                colorDiv.classList.remove("d-none");
+                colorDiv.classList.add("d-flex");
+            }
+            colorsproducts.forEach(v => {
+                v.classList.remove("selected_color");
+            })
+            if (qDiv.classList.contains("d-flex")) {
+                qDiv.classList.remove("d-flex");
+                qDiv.classList.add("d-none");
+            }
+            if (cb.classList.contains("d-flex")) {
+                cb.classList.remove("d-flex");
+                cb.classList.add("d-none");
+            }
+            if (SAndC.classList.contains("d-none")) {
+                SAndC.classList.remove("d-none");
+                SAndC.classList.add("d-flex");
+            }
+            if (instock.classList.contains("d-flex")) {
+                instock.classList.remove("d-flex");
+                instock.classList.add("d-none");
+            }
+        }
+    }))
+    
+    colorsproducts.forEach(c => c.addEventListener("click", function () {
+        colorsproducts.forEach(cc => {
+            if (cc.classList.contains("selected_color")) {
+                cc.classList.remove("selected_color");
+            }
+        })
+        c.classList.add("selected_color");
+        var buttonin = document.querySelector(".btn-increase");
+        var buttondec = document.querySelector(".btn-decrease");
+        buttonin.removeAttribute("disabled");
+        buttonin.classList.remove("disabled");
+        buttondec.classList.add("disabled")
+        buttondec.setAttribute("disabled", "disabled")
+        var cId = c.getAttribute("cID");
+        qinputs.forEach(q=>{
+            q.classList.add("d-none")
+            if (q.getAttribute("qID") == cId) {
+                q.classList.remove("d-none");
+                
+            }
+        })
+        if (qDiv.classList.contains("d-none")) {
+            qDiv.classList.remove("d-none");
+            qDiv.classList.add("d-flex");
+        }
+        
+        if (cb.classList.contains("d-none")) {
+            cb.classList.remove("d-none");
+            cb.classList.add("d-flex");
+        }
+        if (SAndC.classList.contains("d-flex")) {
+            SAndC.classList.remove("d-felx");
+            SAndC.classList.add("d-none");
+        }
+        if (instock.classList.contains("d-none")) {
+            instock.classList.remove("d-none");
+            instock.classList.add("d-flex");
+        }
+    }))
+
+    // qinputs.forEach(ew => {
+    //     if (!ew.classList.contains("d-none")) {
+    //         if (ew.getAttribute("max") == ew.getAttribute("value")) {
+    //             bb.setAttribute("disabled", "disabled")
+    //             bb.classList.add("disabled");
+    //         }
+    //         if (ew.getAttribute("value") == "1") {
+    //             var pp = document.querySelector(".btn-decrease")
+    //             pp.setAttribute("disabled", "disabled")
+    //             pp.classList.add("disabled");
+    //         }
+    //     }
+    // })
+    function increaseQ() {
+        qinputs.forEach(ew => {
+            if (!ew.classList.contains("d-none")) {
+                if (ew.getAttribute("value") != null) {
+
+                    var i = +(ew.getAttribute("value"));
+                    i = i + 1;
+                    ew.setAttribute("value", i);
+                    var pp = document.querySelector(".btn-decrease");
+                    if (i != 1) {
+                        pp.classList.remove("disabled");
+                        pp.removeAttribute("disabled");
+                    }
+                    if (i == ew.getAttribute("max")) {
+                        var bb = document.querySelector(".btn-increase")
+                        bb.setAttribute("disabled","disabled")
+                        bb.classList.add("disabled");
+                    }
+                }
+            }
+        })       
+    }
+    function decreaseQ(){
+        qinputs.forEach(ew =>{
+            if (!ew.classList.contains("d-none")) {
+                if (ew.getAttribute("value") != null) {
+                    var i = +(ew.getAttribute("value"));
+                    i -= 1;
+                    ew.setAttribute("value", i);
+                    var pp = document.querySelector(".btn-increase");
+                    if (i != +(ew.getAttribute("max"))) {
+                        pp.classList.remove("disabled");
+                        pp.removeAttribute("disabled");
+                    }
+                    if (i == "1") {
+                        var bb = document.querySelector(".btn-decrease")
+                        bb.setAttribute("disabled", "disabled")
+                        bb.classList.add("disabled");
+                    }
+                }
+            }
+        })
+    }
+    function rgbToHex(rgb) {
+        // Extract the RGB values
+        var result = rgb.match(/\d+/g);
+        if (result) {
+            // Convert to hexadecimal and pad with leading zeros if necessary
+            return "#" + result.slice(0, 3).map(function (x) {
+                return ("0" + parseInt(x).toString(16)).slice(-2);
+            }).join("");
+        }
+        return "#000000"; // Default to black if unable to parse
+    }
+    var sizevalue, colorvalue, quantityvalue,productidvalue;
+    var GoToCart = document.querySelector(".GoToCart");
+    GoToCart.addEventListener("click",function(){
+        colorsproducts.forEach(ccc => {
+            if (ccc.classList.contains("selected_color")) {
+                var spc = ccc.firstElementChild;
+                colorvalue = rgbToHex(window.getComputedStyle(spc).backgroundColor);
+            }
+        })
+        sizesproducts.forEach(sss=>{
+            if (sss.classList.contains("selected_size")){
+                sizevalue = sss.textContent.trim();
+            }
+        })
+        qinputs.forEach(iii=>{
+            if(!(iii.classList.contains("d-none"))){
+                quantityvalue = +(iii.getAttribute("value"))
+            }
+        })
+        productidvalue = +(document.querySelector(".id-pro").getAttribute("value"))
+
+        var SingleProductInfo = {
+            ProductId: productidvalue,
+            Size: sizevalue,
+            Color: colorvalue,
+            Quantity: quantityvalue
+        };
+        var viewCartUrl = '@Url.Action("ViewCart", "Home")';
+        $.ajax({
+            url: '/Home/AddToCart',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(SingleProductInfo),
+            success: function () {
+               
+                window.location.href = viewCartUrl;
+            }
+        });
+    })
+</script> 

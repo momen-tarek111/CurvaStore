@@ -1,0 +1,113 @@
+﻿@{
+	Layout = "_CurvaStoreLayout";
+}
+@model List<Cart>
+<div class="cover_header_page">
+    <div class="overlay-cover-page d-flex align-items-end">
+        <div class="container de">
+            <div class="row">
+                <div class="col-12">
+                    <div class="bg-transparent iq-card ">
+                        <div class="row d-flex align-items-center mb-2">
+                            <div class="col-lg-12">
+                                <div class="d-flex align-items-center bg-transparent">
+                                    <ol class="breadcrumb bg-transparent mb-0 mt-1">
+                                        <li class="breadcrumb-item text-initial">
+                                            <a asp-controller="Home" asp-action="index" class="router-link-active home" target="_self">
+                                                <i class="fas fa-home"></i>Home
+                                            </a>
+                                        </li>
+                                        <li class="breadcrumb-item text-white active">
+                                            <span aria-current="location"> Cart </span>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="container pt-4">
+        <div class="row mb-5">
+            <div class="col-lg-9 col-12">
+                <span class="fs-6"><span><span class="title-mode-part">Cart</span></span></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-9">
+                <div style="border-radius: 10px;" class=" curva-table table-responsive">
+                    <table class="table">
+                        <thead role="rowgroup">
+                            <tr role="row">
+                                <th class="px-3"><div>Product name</div></th>
+                                <th class="px-3"><div>Size</div></th>
+                                <th class="px-3"><div>Unit Price</div></th>
+                                <th class="px-3"><div class="text-center">Quantity</div></th>
+                                <th class="px-3"><div>Subtotal</div></th>
+                                <th class="px-3"><div>Action</div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                foreach(var item in Model)
+                                {
+                                    <tr class="curva-table-row">
+                                        <td class="px-3">
+                                            <a asp-controller="Home" asp-action="SingleProduct" asp-route-id="@item.product.Id" class="cart-name">
+                                                <img src="~/images/@item.product.Img" class="table-img mx-2 ">
+                                                @item.product.Name
+                                            </a>
+                                        </td>
+                                        <td  class="px-3">@item.colorsize.Size.ToUpper()</td>
+                                        <td  class="px-3 ">@item.product.price<span class="currency">EGP</span></td>
+                                        <td  class="px-3 text-initial">
+                                            <input value="@item.QuantityOfProduct" max="@item.colorsize.Quantity" disabled="disabled" class="table-quantity-text">
+                                        </td>
+                                        <td class="px-3"><span class="sub_price">@((item.QuantityOfProduct)*(item.product.price))</span><span class="currency">EGP</span></td>
+                                        <td  class="px-3 ">
+                                            <a asp-controller="Home" asp-action="RemoveFromCart" asp-route-id="@item.Id" style="color: #c45858;" class="btn remove-btn"><i class="far fa-trash-alt me-2 fs-5"></i> Remove</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="order-summary">
+                    <p class="title text-center">Order Summary</p>
+                    <div class="row">
+                        <div class="text-start col" style="color: #a09e9e;">Total Items</div>
+                        <div class="text-end col" style="color: #a09e9e;">@Model.Sum(m=>m.QuantityOfProduct)</div>
+                    </div>
+                    <div class="row">
+                        <div class="text-start col" style="color: #a09e9e;">Subtotal</div>
+                        <div class="text-end col" style="color: #a09e9e;"> @Model.Sum(m =>m.QuantityOfProduct*m.product.price)<span class="currency">EGP</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="text-start col " style="color: #a09e9e;">Tax</div>
+                        <div class="text-end col" style="color: #a09e9e;"> 0<span class="currency">EGP</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="text-start col " style="color: #a09e9e;">Delivery fees</div>
+                        <div class="text-end col " style="color: #a09e9e;"> 0<span class="currency">EGP</span></div>
+                    </div>
+                    <div class="row total-row">
+                        <div style="color: #a09e9e;" class="text-start col">Total</div>
+                        <div class="text-end col" style="color: #a09e9e;">@Model.Sum(m => m.QuantityOfProduct * m.product.price) <span class="currency">EGP</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <button style="width: 100%;" type="button" class="btn curva-granola-btn small-rounded-btn btn-secondary">Continue </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

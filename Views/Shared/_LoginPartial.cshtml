@@ -1,0 +1,62 @@
+﻿@using CurvaStore.Utility
+@using Microsoft.AspNetCore.Identity
+@using CurvaStore.Models
+@inject SignInManager<CurvaUser> SignInManager
+@inject UserManager<CurvaUser> UserManager
+
+<ul class="navbar-nav">
+@if (SignInManager.IsSignedIn(User))
+{
+        @* <li class="nav-item">
+        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+    </li>
+    <li class="nav-item">
+        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button id="logout" type="submit" class="nav-link btn btn-link text-dark border-0">Logout</button>
+        </form>
+    </li> *@
+        if (User.IsInRole(RL.RoleAdmin))
+        {
+            <li class="header-chooses-li nav-item"><a asp-controller="DashBoard" asp-action="index" class="header-chooses-li-a nav-link">Dash Board</a></li>
+        }
+        <li>
+            <span style="position: relative; margin-right: 20px;line-height: 45px;">
+                @{
+                    if ((int)ViewData["numOfCart"] !=0)
+                    {
+                        <div class="countCart position-absolute">@ViewData["numOfCart"]</div>
+                    }
+                }
+                <a asp-controller="Home" asp-action="ViewCart">
+                    <i style="color: #d1ab5f; font-size: 25px;" class="fas fa-shopping-cart"></i>
+                </a>
+            </span>
+        </li>
+        <li>
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn "><img class="rounded-circle" src="~/images/th.jpeg" alt=""></button>
+                <div id="myDropdown" class="dropdown-content">
+@*                     <a href="./Profile.html"><i class="far fa-user"></i>Profile Info</a>
+ *@                     <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button style="width: 100%;border-width: 0;background: transparent;font-weight: 500;display: block;" type="submit">
+                                <i class="fas fa-sign-out-alt" style="color: #d1ab5f;margin-left: -50px;"></i>Logout
+                            </button>
+                       </form>
+                </div>
+            </div>
+        </li>
+}
+else
+{
+    @* <li class="nav-item">
+        <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    </li> *@
+        <form class="d-flex ">
+@*             <div class="headerInput  "><input type="text" placeholder="Search" class="form-control"><i class="fas fa-search"></i></div>
+ *@            <a asp-area="Identity" asp-page="/Account/Login"><button type="button" class="Login">Login</button></a>
+        </form>
+}
+</ul>

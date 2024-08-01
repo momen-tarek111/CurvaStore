@@ -1,0 +1,78 @@
+﻿@model ProductsAndColors
+@{
+    Layout = "_CurvaDashBoardLayout";
+}
+<div class="dash-content">
+    <div class="overview">
+        <div class="title">
+            <span class="text" style="color: #d1ab5f;">All Product</span>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td class="table-light">id</td>
+                    <td class="table-light">Name</td>
+                    <td class="table-light">Code</td>
+                    <td class="table-light">Description</td>
+                    <td class="table-light">Brand</td>
+                    <td class="table-light">Club</td>
+                    <td class="table-light">Season</td>
+                    <td class="table-light">price</td>
+                    <td class="table-light">OldPrice</td>
+                    <td class="table-light">Quantity</td>
+                    <td class="table-light">Color</td>
+                    <td class="table-light">Size</td>
+                    <td class="table-light">CategName</td>
+                    <td class="table-light">InStock</td>
+                    <td class="table-light">Operation</td>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach(var item in Model.products)
+                    {
+                        foreach(var c in Model.colorSizes)
+                        {
+                            if (c.ProductId == item.Id)
+                            {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>
+                                        <img src="~/images/@item.Img" class="table-img" alt="">
+                                        <span>@item.Name</span>
+                                    </td>
+                                    <td>@item.code</td>
+                                    <td style="overflow-wrap: break-word; width: 10px;">@item.Description</td>
+                                    <td>@item.BrandName</td>
+                                    <td>@item.ClubName</td>
+                                    <td>@item.Season</td>
+                                    <td>@item.price</td>
+                                    <td>@item.OldPrice</td>
+                                    <td>@c.Quantity</td>
+                                    <td><span style="width:20px; height: 20px; border-radius: 50%; background-color:@c.color; display: inline-block;"></span></td>
+                                    <td>@c.Size</td>
+                                    <td>@item.category.Name</td>
+                                    <td>@item.InStock</td>
+                                    <td>
+                                        <a asp-action="EditProduct" asp-route-id="@c.id" class="btn btn-success" role="button">
+                                            <span class="">
+                                                Edit
+                                            </span>
+                                        </a>
+                                        <a asp-action="DeleteProduct" asp-route-id="@c.id"  class="btn btn-danger " role="button">
+                                            <span class="">
+                                                delete
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

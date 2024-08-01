@@ -1,0 +1,42 @@
+﻿@model Blog
+@{
+	Layout = "_CurvaDashBoardLayout";
+}
+<div class="dash-content">
+    <div class="overview">
+        <div class="title">
+            <span class="text" style="color: #d1ab5f;">Adding Blog</span>
+        </div>
+        <div>
+            <form method="post" asp-action="EditBlog" class="row" enctype="multipart/form-data">
+                <div class="mb-3 col-lg-6 justify-content-center">
+                    <label asp-for="Tittle" class="form-label">Blog Tittle</label>
+                    <input asp-for="Tittle" type="text" class="form-control" placeholder="" value="@Model.Tittle" />
+                    <span asp-validation-for="Tittle" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-lg-6">
+                    <label asp-for="Description" class="form-label">Blog Description</label>
+                    <textarea asp-for="Description" type="text" class="form-control" placeholder="">@Model.Description</textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                
+                <div class="mb-3 col-lg-6">
+                    <label asp-for="dateTime">(date and time of Blog)</label>
+                    <input asp-for="dateTime" class="form-control" type="datetime-local" id="birthdaytime" value="@Model.dateTime.ToString("yyyy-MM-dd HH:mm")">
+                    <span asp-validation-for="dateTime" class="text-danger"></span>
+                </div>
+                <div class=" mb-3 col-lg-5 d-flex align-items-center mt-4 ">
+                    <label asp-for="BlogImage" class="form-label">
+                        img Blog
+                        <input asp-for="BlogImage" class="form-control mt-2" type="file" accept="image/*" id="formFile">
+                    </label>
+                    <span asp-validation-for="BlogImage" class="text-danger"></span>
+                </div>
+                <div class="col-lg-12 d-flex justify-content-center  ">
+                    <button type="submit" class="btn butt">Submit</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

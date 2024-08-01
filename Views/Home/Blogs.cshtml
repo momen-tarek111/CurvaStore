@@ -1,0 +1,201 @@
+﻿@model BlogsAndPages
+@{
+	Layout = "_CurvaStoreLayout";
+}
+<div class="cover_header_page">
+    <div class="overlay-cover-page d-flex align-items-end">
+        <div class="container de">
+            <div class="row">
+                <div class="col-12">
+                    <div class="bg-transparent iq-card ">
+                        <div class="row d-flex align-items-center mb-2">
+                            <div class="col-lg-12">
+                                <div class="d-flex align-items-center bg-transparent">
+                                    <ol class="breadcrumb bg-transparent mb-0 mt-1">
+                                        <li class="breadcrumb-item text-initial">
+                                            <a asp-controller="Home" asp-action="index"  class="router-link-active home" target="_self">
+                                                <i class="fas fa-home"></i>Home
+                                            </a>
+                                        </li>
+                                        <li class="breadcrumb-item text-white active">
+                                            <span aria-current="location"> Blogs </span>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="container">
+        <div class="row text-start mb-5 pt-5">
+            <div class="col">
+                <span class="font-size-16 mb-5">
+                    <span>
+                        <span class="title-colored-part">Our </span>
+                    </span>
+                    <span>
+                        <span class="title-mode-part">Blogs</span>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="mb-5 row d-flex">
+            @{
+                foreach(var item in Model.blogs)
+                {
+                    <div class=" col-6 col-lg-3 mb-4">
+                        <a asp-controller="Home" asp-action="SingleBlog" asp-route-id="@item.Id">
+                            <div class="card m-auto mb-5">
+                                <img class="card-img-top" src="~/images/@item.Img" alt="Card image">
+                                <div class="card-body">
+                                    <p class="blog-date text-left p1">Posted on @item.dateTime.ToString("yyyy-MM-dd HH:mm tt") </p>
+                                    <p class="blog-title text-right p2" >@item.Tittle</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+        @if (Model.blogs.Count() != 0)
+        {
+            <div class="row mb-5">
+            <div class="d-flex justify-content-center col">
+                <ul role="menubar" aria-disabled="false" aria-label="Pagination" class="pagination curva-pagination b-pagination">
+                    
+                    @{
+                        if(Model.currentPages==1)
+                        {
+                            <li class="page-item disabled">
+                                <span class="page-link">«</span>
+                            </li>
+                            <li class="page-item disabled ">
+                                <span class="page-link">‹</span>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item">
+                                <a  asp-controller="Home" asp-action="Blogs" asp-route-currPages="1" class="page-link">«</a>
+                            </li>
+                            <li class="page-item">
+                                <a  asp-controller="Home" asp-action="Blogs" asp-route-currPages="@Model.currentPages-1" class="page-link">‹</a>
+                            </li>
+                        }
+                        if (Model.currentPages >= 1 && Model.currentPages <= 3)
+                        {
+                            if (Model.totalPages <= 4)
+                            {
+                                for(int i = 1; i <= Model.totalPages; i++)
+                                {
+                                    if (i == Model.currentPages)
+                                    {
+                                        <li class="page-item active ">
+                                            <button type="button" disabled class="page-link">@i</button>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item ">
+                                            <a  asp-controller="Home" asp-action="Blogs" asp-route-currPages="@i" class="page-link">@i</a>
+                                        </li>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                for(int i = 1; i <= Model.totalPages; i++)
+                                {
+                                    if (i == Model.currentPages)
+                                    {
+                                        <li class="page-item active ">
+                                            <a  disabled class="page-link">@i</a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item ">
+                                            <a asp-controller="Home" asp-action="Blogs" asp-route-currPages="@i" class="page-link">@i</a>
+                                        </li>
+                                    }
+                                }
+                                <li class="page-item disabled bv-d-xs-down-none ">
+                                    <span class="page-link">…</span>
+                                </li>
+                            }
+                        }
+                        else if (Model.currentPages>3&&Model.currentPages<=(Model.totalPages-3)){
+                            <li class="page-item disabled bv-d-xs-down-none ">
+                                <span class="page-link">…</span>
+                            </li>
+                            for(int i = Model.currentPages - 1; i <= Model.currentPages + 1; i++)
+                            {
+                                if (i == Model.currentPages)
+                                {
+                                    <li class="page-item active ">
+                                        <a class="page-link">@i</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="page-item ">
+                                        <a asp-controller="Home" asp-action="Blogs" asp-route-currPages="@i" class="page-link">@i</a>
+                                    </li>
+                                }
+                            }
+                            <li class="page-item disabled bv-d-xs-down-none ">
+                                <span class="page-link">…</span>
+                            </li>
+                        }
+                        else
+                        {
+                            for(int i = Model.totalPages - 3; i <= Model.totalPages; i++)
+                            {
+                                <li class="page-item disabled bv-d-xs-down-none ">
+                                    <span class="page-link">…</span>
+                                </li>
+                                if (i == Model.currentPages)
+                                {
+                                    <li class="page-item active ">
+                                        <a class="page-link">@i</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="page-item ">
+                                        <a asp-controller="Home" asp-action="Blogs" asp-route-currPages="@i" class="page-link">@i</a>
+                                    </li>
+                                }
+                            }
+                        }
+                        if (Model.currentPages == Model.totalPages||Model.totalPages==1)
+                        {
+                            <li class="page-item disabled">
+                                <span class="page-link">›</span>
+                            </li>
+                            <li class="page-item disabled ">
+                                <span class="page-link">»</span>
+                            </li>
+                        }
+                        else
+                        {
+                            <li  class="page-item ">
+                                <a asp-controller="Home" asp-action="Blogs" asp-route-currPages="@Model.currentPages+1"  class="page-link">›</a>
+                            </li>
+                            <li> role="prss="page-item
+                                <a asp-controller="Home" asp-action="Blogs" asp-route-currPages="@Model.totalPages" class="page-link">»</a>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+        }
+        
+    </div>
+</section

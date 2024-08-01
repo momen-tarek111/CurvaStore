@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Blog>
+@{
+	Layout = "_CurvaDashBoardLayout";
+}
+<div class="dash-content">
+    <div class="overview">
+        <div class="title">
+
+            <span class="text" style="color: #d1ab5f;">All Blogs</span>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td class="table-light">id</td>
+                    <td class="table-light">Title</td>
+                    <td class="table-light">Description</td>
+                    <td class="table-light">date and time</td>
+                    <td class="table-light">Operation</td>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>
+                                <img src="~/images/@item.Img" class="table-img-blog" alt="">
+                                <span>@item.Tittle</span>
+                            </td>
+                            <td>@item.Description</td>
+                            <td>@item.dateTime</td>
+                            <td>
+                                <a  class="btn btn-success" asp-action="EditBlog" asp-route-id="@item.Id" role="button">
+                                    <span class="">
+                                        Edit
+                                    </span>
+                                </a>
+                                <a asp-action="DeleteBlog" asp-route-id="@item.Id" class="btn btn-danger " role="button">
+                                    <span class="">
+                                        delete
+                                    </span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                
+            </tbody>
+        </table>
+    </div>
+</div>
