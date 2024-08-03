@@ -52,6 +52,18 @@
                         <span class="link-name">View Blog</span>
                     </a>
                 </li>
+                <li>
+                    <a asp-action="ViewUsers" asp-controller="DashBoard">
+                        <i class="uil uil-users-alt"></i>
+                        <span class="link-name">View All Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-action="ViewMassages" asp-controller="DashBoard">
+                        <i class="uil uil-comment-alt-chart-lines"></i>
+                        <span class="link-name">All Massages</span>
+                    </a>
+                </li>
             </ul>
 
             <ul class="logout-mode p-0">
@@ -76,6 +88,7 @@
         @RenderBody()
     </section>
     <script src="~/js/CurvaDashBoardJS/script.js"></script>
+    <script src="~/js/CurvaStoreJS/script.js"></script>
     <script src="~/lib/CurvaDashBoard/boostrap/js/bootstrap.min.js"></script>
 </body>
 </html>

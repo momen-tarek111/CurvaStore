@@ -1177,3 +1177,6 @@ td, th {
 .cart-name:hover {
     color: #d1ab5f;
 }
+.active-link-footer{
+    color:#d1ab5f;
+}

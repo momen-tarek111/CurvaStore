@@ -1,3 +1,31 @@
+var links = document.querySelector(".aa");
+links.forEach(m => m.addEventListener("click", function () {
+    links.forEach(n => {
+        if (n.classList.contains("router-link-active")) {
+            n.classList.remove("router-link-active");
+        }
+    })
+    m.classList.add("router-link-active");
+}))
+var linksfooter = document.querySelector(".footer-ul1 li a");
+linksfooter.forEach(m => m.addEventListener("click", function () {
+    linksfooter.forEach(n => {
+        if (n.classList.contains("active-link-footer")) {
+            n.classList.remove("active-link-footer")
+        }
+    })
+    m.classList.add("active-link-footer");
+}))
+var ss = document.querySelector(".link-name")
+var dd = document.querySelector(".router-link-exact-active")
+ss.addEventListener("click", function () {
+    linksfooter.forEach(n => {
+        if (n.classList.contains("active-link-footer")) {
+            n.classList.remove("active-link-footer")
+        }
+    })
+    dd.classList.add("router-link-active");
+})
 var hearts = document.querySelectorAll(".far");
 hearts.forEach(item => {
     if (!(item.classList.contains("ar"))) {

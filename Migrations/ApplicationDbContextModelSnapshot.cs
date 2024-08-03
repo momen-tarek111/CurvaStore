@@ -245,8 +245,8 @@ namespace CurvaStore.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<DateTime?>("date")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly?>("date")
+                        .HasColumnType("date");
 
                     b.HasKey("Id");
 

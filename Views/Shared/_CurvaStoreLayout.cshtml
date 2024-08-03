@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using CurvaStore.Utility
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,30 +23,35 @@
                 <div class="collapse navbar-collapse " id="mynavbar">
                     <ul class="navbar-nav m-auto">
                         <li class="header-chooses-li nav-item">
-                            <a class="header-chooses-li-a nav-link link_head router-link-exact-active router-link-active" asp-controller="Home" asp-action="index">Home</a>
+                            <a class="header-chooses-li-a aa nav-link link_head router-link-exact-active router-link-active" asp-controller="Home" asp-action="index">Home</a>
                         </li>
                         <li class="header-chooses-list">
-                            <a asp-controller="Home" asp-action="Products" asp-route-id="0" class="header-a1 header-chooses-li-a nav-link">categories <i class="fas fa-chevron-down i1"></i></a>
+                            <a asp-controller="Home" asp-action="Products" asp-route-id="0" class="header-a1 aa header-chooses-li-a nav-link">categories <i class="fas fa-chevron-down i1"></i></a>
                             <div class="header-cacategories py-2">
                                 <p href="#" class="header-categories-p" style="color: #d1ab5f;">categories</p>
                                 <ul class="header-chooses ul1">
-                                    <li class="header-categories-ul1-li header-chooses-li-a"><a asp-controller="Home" asp-action="Products" asp-route-id="1" class="header-categories-ul1-li-a header-categories-ul1-li-a1">Football clothes</a></li>
+                                    <li class="header-categories-ul1-li header-chooses-li-a"><a asp-controller="Home" asp-action="Products" asp-route-id="1" class="header-categories-ul1-li-a aa header-categories-ul1-li-a1">Football clothes</a></li>
                                     <li class="header-categories-ul1-li header-chooses-li-a"><a asp-controller="Home" asp-action="Products" asp-route-id="6" class="header-categories-ul1-li-a header-categories-ul1-li-a1">Football shoes</a></li>
                                 </ul>
                                 <ul class="header-chooses ul2">
-                                    <li class="header-categories-ul1-li header-chooses-li-a"><a asp-controller="Home" asp-action="Products" asp-route-id="2" class="header-categories-ul1-li-a header-categories-ul1-li-a1">Football</a></li>
-                                    <li class="header-categories-ul1-li header-chooses-li-a"><a asp-controller="Home" asp-action="Products" asp-route-id="4" class="header-categories-ul1-li-a header-categories-ul1-li-a1">clothes</a></li>
+                                    <li class="header-categories-ul1-li header-chooses-li-a"><a asp-controller="Home" asp-action="Products" asp-route-id="2" class="header-categories-ul1-li-a aa header-categories-ul1-li-a1">Football</a></li>
+                                    <li class="header-categories-ul1-li header-chooses-li-a"><a asp-controller="Home" asp-action="Products" asp-route-id="4" class="header-categories-ul1-li-a aa header-categories-ul1-li-a1">clothes</a></li>
                                 </ul>
                                 <ul class="header-chooses ul3">
-                                    <li class="header-categories-ul1-li header-chooses-li-a"><a asp-controller="Home" asp-action="Products" asp-route-id="3" class="header-categories-ul1-li-a header-categories-ul1-li-a1">Football bags</a></li>
-                                    <li class="header-categories-ul1-li header-chooses-li-a"><a asp-controller="Home" asp-action="Products" asp-route-id="5" class="header-categories-ul1-li-a header-categories-ul1-li-a1">accessories</a></li>
+                                    <li class="header-categories-ul1-li header-chooses-li-a"><a asp-controller="Home" asp-action="Products" asp-route-id="3" class="header-categories-ul1-li-a aa header-categories-ul1-li-a1">Football bags</a></li>
+                                    <li class="header-categories-ul1-li header-chooses-li-a"><a asp-controller="Home" asp-action="Products" asp-route-id="5" class="header-categories-ul1-li-a aa header-categories-ul1-li-a1">accessories</a></li>
                                 </ul>
                             </div>
                         </li>
-                        <li class="header-chooses-li nav-item"><a asp-controller="Home" asp-action="Offers"  class="header-chooses-li-a nav-link ">Offers</a></li>
-                        <li class="header-chooses-li nav-item"><a asp-controller="Home" asp-action="About" class="header-chooses-li-a nav-link">About</a></li>
-                        <li class="header-chooses-li nav-item"><a asp-controller="Home" asp-action="Blogs" class="header-chooses-li-a nav-link">Blogs</a></li>
-                        <li class="header-chooses-li nav-item"><a asp-controller="Home" asp-action="ContactUs" class="header-chooses-li-a nav-link">Contact us</a></li>
+                        <li class="header-chooses-li nav-item"><a asp-controller="Home" asp-action="Offers" class="header-chooses-li-a aa nav-link ">Offers</a></li>
+                        <li class="header-chooses-li nav-item"><a asp-controller="Home" asp-action="About" class="header-chooses-li-a aa nav-link">About</a></li>
+                        <li class="header-chooses-li nav-item"><a asp-controller="Home" asp-action="Blogs" class="header-chooses-li-a aa nav-link">Blogs</a></li>
+                        <li class="header-chooses-li nav-item"><a asp-controller="Home" asp-action="ContactUs" class="header-chooses-li-a aa nav-link">Contact us</a></li>
+                        @if (User.IsInRole(RL.RoleAdmin))
+                        {
+                            <li class="header-chooses-li nav-item"><a asp-controller="DashBoard" asp-action="index" class="header-chooses-li-a nav-link">Dash Board</a></li>
+
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -92,14 +98,14 @@
                 <div class="mb-4 col-lg-2 col-12">
                     <div class="d-flex footer-list">
                         <ul class="footer-ul1 list-unstyled">
-                            <li><a asp-controller="Home" asp-action="index" style="color: #d1ab5f;">Home</a></li>
-                            <li><a asp-controller="Home" asp-action="About">About</a></li>
-                            <li><a asp-controller="Home" asp-action="ContactUs">Contact Us</a></li>
+                            <li><a asp-controller="Home" asp-action="index" style="color: #d1ab5f;" class="active-link-footer">Home</a></li>
+                            <li><a asp-controller="Home" asp-action="About" class="">About</a></li>
+                            <li><a asp-controller="Home" asp-action="ContactUs" class="">Contact Us</a></li>
                         </ul>
                         <ul class="footer-ul1 list-unstyled">
-                            <li><a asp-controller="Home" asp-action="Products" asp-route-id="0">Ptoducts</a></li>
-                            <li><a asp-controller="Home" asp-action="Blogs">Blogs</a></li>
-                            <li><a asp-controller="Home" asp-action="Offers">Offers</a></li>
+                            <li><a asp-controller="Home" asp-action="Products" asp-route-id="0" class="">Ptoducts</a></li>
+                            <li><a asp-controller="Home" asp-action="Blogs" class="">Blogs</a></li>
+                            <li><a asp-controller="Home" asp-action="Offers" class="">Offers</a></li>
                         </ul>
                     </div>
                 </div>
@@ -135,5 +141,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.js"></script>
     @RenderSection("Scripts", required: false)
     <script src="~/js/CurvaStoreJS/script.js"></script>
+   
 </body>
 </html>

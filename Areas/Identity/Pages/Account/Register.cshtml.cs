@@ -115,7 +115,7 @@ namespace CurvaStore.Areas.Identity.Pages.Account
             [Required]
             [Display(Name = "date")]
             [DataType(DataType.Date)]
-            public DateTime date { get; set; }
+            public DateOnly date { get; set; }
             [Required]
             [DataType(DataType.PhoneNumber)]
             [RegularExpression(@"^\d{11}$",ErrorMessage ="the phone number is in valid")]

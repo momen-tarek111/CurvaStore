@@ -44,7 +44,14 @@
                                         <span>@item.Name</span>
                                     </td>
                                     <td>@item.code</td>
-                                    <td style="overflow-wrap: break-word; width: 10px;">@item.Description</td>
+                                    @if (item.Description.ToLower() == "e")
+                                    {
+                                        <td style="overflow:hidden; text-overflow:ellipsis; max-width: 400px;">Empty</td>
+                                    }
+                                    else
+                                    {
+                                        <td data-bs-toggle="tooltip" title="@item.Description" style="overflow:hidden; text-overflow:ellipsis; max-width: 400px;">@item.Description</td>
+                                    }
                                     <td>@item.BrandName</td>
                                     <td>@item.ClubName</td>
                                     <td>@item.Season</td>
@@ -76,3 +83,9 @@
         </table>
     </div>
 </div>
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+</script>

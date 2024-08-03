@@ -6,6 +6,7 @@ namespace CurvaStore.Models
     {
         public string ?FullName { get; set; }
         public string ?Gender { get; set; }
-        public DateTime ?date { get; set; }
+        public DateOnly ?date { get; set; }
+
     }
 }

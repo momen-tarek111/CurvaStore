@@ -1,6 +1,7 @@
 ﻿using CurvaStore.DataBase;
 using CurvaStore.Models;
 using CurvaStore.ModelView;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -14,19 +15,49 @@ namespace CurvaStore.Controllers
     {
         
         private static ProductColor productColor=new ProductColor();
-        
+        private readonly UserManager<CurvaUser> _userManager;
         private readonly ApplicationDbContext _db;
         private readonly IHostingEnvironment _hosting;
 
         
-        public DashBoardController(ApplicationDbContext db, IHostingEnvironment hosting)
+        public DashBoardController(ApplicationDbContext db, IHostingEnvironment hosting, UserManager<CurvaUser> userManager)
         {
             _db = db;
             _hosting = hosting;
+            _userManager= userManager;
         }
-        public IActionResult Index()
+        public  async Task<IActionResult> Index()
         {
-            return View();
+            DashBoardHomeModelView dashBoardHomeModelView = new DashBoardHomeModelView();
+            
+            dashBoardHomeModelView.numberOFProducts = _db.products.Count();
+            dashBoardHomeModelView.numberOfBlogs= _db.blogs.Count();
+            dashBoardHomeModelView.numberOfUsers=_userManager.Users.Count();
+
+            foreach(var item in await _userManager.Users.ToListAsync())
+            {
+                UserAndHisRole userAndHisRole = new UserAndHisRole();
+                userAndHisRole.User = item;
+                var roles = await _userManager.GetRolesAsync(item);
+                userAndHisRole.roles = roles.ToList();
+                dashBoardHomeModelView.users.Add(userAndHisRole);
+            }
+            dashBoardHomeModelView.users = dashBoardHomeModelView.users.Take(5).ToList();
+            return View(dashBoardHomeModelView);
+        }
+        public async Task<IActionResult> ViewUsersAsync()
+        {
+            List<UserAndHisRole> users = new List<UserAndHisRole>();
+            
+            foreach (var item in await _userManager.Users.ToListAsync())
+            {
+                UserAndHisRole userAndHisRole = new UserAndHisRole();
+                userAndHisRole.User = item;
+                var roles = await _userManager.GetRolesAsync(item);
+                userAndHisRole.roles = roles.ToList();
+                users.Add(userAndHisRole);
+            }
+            return View(users);
         }
         public IActionResult AddProduct()
         {
@@ -245,6 +276,21 @@ namespace CurvaStore.Controllers
             _db.SaveChanges();
             return RedirectToAction("ViewBlogs");
         }
-       
-    }
+        public IActionResult ViewMassages()
+        {
+            return View(_db.messages.ToList());
+        }
+        public IActionResult ShowMessage(int id)
+        {
+            ContactUs contactUs =_db.messages.FirstOrDefault(x=>x.Id == id);
+            return View(contactUs);
+        }
+		public IActionResult DeleteMessage(int id)
+		{
+			ContactUs contactUs = _db.messages.FirstOrDefault(x => x.Id == id);
+            _db.messages.Remove(contactUs);
+            _db.SaveChanges();
+            return RedirectToAction("ViewMassages");
+		}
+	}
 }

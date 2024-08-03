@@ -1,0 +1,52 @@
+﻿@{
+	Layout = "_CurvaDashBoardLayout";
+}
+@model List<ContactUs>
+<div class="dash-content">
+    <div class="overview">
+        <div class="title">
+            <span class="text" style="color: #d1ab5f;">All Messages</span>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td class="table-light">id</td>
+                    <td class="table-light">Full Name</td>
+                    <td class="table-light">Email</td>
+                    <td class="table-light">Phone Number</td>
+                    <td class="table-light">Message</td>
+                    <td class="table-light">Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            
+                            <td>@item.FullName</td>
+                            <td>@item.Email</td>
+                            <td>@item.Phone</td>
+                            <td style="text-overflow:ellipsis; max-width: 300px; overflow:hidden;">@item.Message</td>
+                            <td>
+                                <a asp-action="ShowMessage" asp-route-id="@item.Id" class="btn btn-success">
+                                    <span class="">
+                                        Show
+                                    </span>
+                                </a>
+                                <a asp-action="DeleteMessage" asp-route-id="@item.Id" class="btn btn-danger ">
+                                    <span class="">
+                                        delete
+                                    </span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

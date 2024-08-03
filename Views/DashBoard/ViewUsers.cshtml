@@ -1,0 +1,66 @@
+﻿@{
+	Layout = "_CurvaDashBoardLayout";
+}
+@model List<UserAndHisRole>
+<div class="dash-content">
+    <div class="overview">
+        <div class="title">
+            <span class="text" style="color: #d1ab5f;">All Users</span>
+        </div>
+    </div>
+    <div class="activity">
+        <div class="activity-data">
+            <div class="data names">
+                <span class="data-title">Name</span>
+                @{
+                    foreach (var item in Model)
+                    {
+                        <span class="data-list">@item.User.FullName</span>
+                    }
+                }
+
+            </div>
+            <div class="data email">
+                <span class="data-title">Email</span>
+                @{
+                    foreach (var item in Model)
+                    {
+                        <span class="data-list">@item.User.Email</span>
+                    }
+                }
+            </div>
+            <div class="data joined">
+                <span class="data-title">Date of birth</span>
+                @{
+                    foreach (var item in Model)
+                    {
+                        <span class="data-list">@item.User.date.ToString()</span>
+                    }
+                }
+            </div>
+            <div class="data type">
+                <span class="data-title">Gender</span>
+                @{
+                    foreach (var item in Model)
+                    {
+                        <span class="data-list">@item.User.Gender</span>
+                    }
+                }
+            </div>
+            <div class="data Role">
+                <span class="data-title">Role</span>
+                @{
+                    foreach (var item in Model)
+                    {
+                        <span class="data-list d-flex">
+                            @foreach (var item2 in item.roles)
+                            {
+                                <span>@item2  </span>
+                            }
+                        </span>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

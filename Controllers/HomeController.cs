@@ -13,40 +13,40 @@ namespace CurvaStore.Controllers
        
         public IActionResult Index()
 		{
-            ViewData["numOfCart"] = _db.carts.Count();
 			ProductsBlogs productsBlogs = new ProductsBlogs();
 			productsBlogs.products = _db.products.OrderBy(m=>m.Id).Reverse().Take(4).ToList();
             productsBlogs.blogs = _db.blogs.OrderBy(m=>m.dateTime).Reverse().Take(3).ToList();
+            ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
             return View(productsBlogs);
 		}
 		public IActionResult About()
 		{
-            ViewData["numOfCart"] = _db.carts.Count();
+            ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
             return View();
 		}
 		public IActionResult ContactUs()
 		{
-            ViewData["numOfCart"] = _db.carts.Count();
+            ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
             return View();
 		}
 		public IActionResult SubmitMeassage(ContactUs Cus)
 		{
-            ViewData["numOfCart"] = _db.carts.Count();
             if (!ModelState.IsValid)
 			{
-				return View("ContactUs",Cus);
+                ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                return View("ContactUs",Cus);
 			}
 			else
 			{
 				_db.messages.Add(Cus);
 				_db.SaveChanges();
-				return RedirectToAction("Index");
+                ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                return RedirectToAction("Index");
 			}
 		}
 		public IActionResult Products(int id,int ?currPage, int sortId=5)
 		{
-            ViewData["numOfCart"] = _db.carts.Count();
-            ProductsAndCategories productsAndCategories= new ProductsAndCategories();
+            ProductsAndCategories productsAndCategories = new ProductsAndCategories();
 			productsAndCategories.categories = _db.categories.ToList();
             if (currPage == null)
             {
@@ -60,6 +60,9 @@ namespace CurvaStore.Controllers
                 {
                     productsAndCategories.TotalPages = (int)Math.Ceiling(_db.products.Count() / 15.0);
                     productsAndCategories.products = _db.products.OrderBy(m => m.price).Skip(skipProduct).Take(15).ToList();
+                    ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                    productsAndCategories.id = id;
+                    productsAndCategories.sortId = sortId;
                     return View(productsAndCategories);
                 }
 
@@ -67,6 +70,7 @@ namespace CurvaStore.Controllers
                 productsAndCategories.products = _db.products.Where(m => m.CategoroyID == id).OrderBy(m => m.price).Skip(skipProduct).Take(15).ToList();
                 productsAndCategories.id = id;
                 productsAndCategories.sortId = sortId;
+                ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
                 return View(productsAndCategories);
             }
 			else if(sortId == 2)
@@ -75,12 +79,16 @@ namespace CurvaStore.Controllers
                 {
                     productsAndCategories.TotalPages = (int)Math.Ceiling(_db.products.Count() / 15.0);
                     productsAndCategories.products = _db.products.OrderBy(m => m.price).Reverse().Skip(skipProduct).Take(15).ToList();
+                    ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                    productsAndCategories.id = id;
+                    productsAndCategories.sortId = sortId;
                     return View(productsAndCategories);
                 }
                 productsAndCategories.TotalPages = (int)Math.Ceiling(_db.products.Where(m => m.CategoroyID == id).Count() / 15.0);
                 productsAndCategories.products = _db.products.Where(m => m.CategoroyID == id).OrderBy(m => m.price).Reverse().Skip(skipProduct).Take(15).ToList();
                 productsAndCategories.id = id;
                 productsAndCategories.sortId = sortId;
+                ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
                 return View(productsAndCategories);
             }
 			else if(sortId==3) {
@@ -89,12 +97,16 @@ namespace CurvaStore.Controllers
                 {
                     productsAndCategories.TotalPages = (int)Math.Ceiling(_db.products.Count() / 15.0);
                     productsAndCategories.products = _db.products.OrderBy(m => m.Name).Skip(skipProduct).Take(15).ToList();
+                    ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                    productsAndCategories.id = id;
+                    productsAndCategories.sortId = sortId;
                     return View(productsAndCategories);
                 }
                 productsAndCategories.TotalPages = (int)Math.Ceiling(_db.products.Where(m => m.CategoroyID == id).Count() / 15.0);
                 productsAndCategories.products = _db.products.Where(m => m.CategoroyID == id).OrderBy(m => m.Name).Skip(skipProduct).Take(15).ToList();
                 productsAndCategories.id = id;
                 productsAndCategories.sortId = sortId;
+                ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
                 return View(productsAndCategories);
             }
 			else if(sortId==4) {
@@ -103,12 +115,16 @@ namespace CurvaStore.Controllers
                 {
                     productsAndCategories.TotalPages = (int)Math.Ceiling(_db.products.Count() / 15.0);
                     productsAndCategories.products = _db.products.OrderBy(m => m.Name).Reverse().Skip(skipProduct).Take(15).ToList();
+                    ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                    productsAndCategories.id = id;
+                    productsAndCategories.sortId = sortId;
                     return View(productsAndCategories);
                 }
                 productsAndCategories.TotalPages = (int)Math.Ceiling(_db.products.Where(m => m.CategoroyID == id).Count() / 15.0);
                 productsAndCategories.products = _db.products.Where(m => m.CategoroyID == id).OrderBy(m => m.Name).Reverse().Skip(skipProduct).Take(15).ToList();
                 productsAndCategories.id = id;
                 productsAndCategories.sortId = sortId;
+                ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
                 return View(productsAndCategories);
             }
 			else if (sortId==5) {
@@ -116,12 +132,16 @@ namespace CurvaStore.Controllers
                 {
                     productsAndCategories.TotalPages = (int)Math.Ceiling(_db.products.Count() / 15.0);
                     productsAndCategories.products = _db.products.OrderBy(m => m.Id).Reverse().Skip(skipProduct).Take(15).ToList();
+                    ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                    productsAndCategories.id = id;
+                    productsAndCategories.sortId = sortId;
                     return View(productsAndCategories);
                 }
                 productsAndCategories.TotalPages = (int)Math.Ceiling(_db.products.Where(m => m.CategoroyID == id).Count() / 15.0);
                 productsAndCategories.products = _db.products.Where(m => m.CategoroyID == id).OrderBy(m => m.Id).Reverse().Skip(skipProduct).Take(15).ToList();
                 productsAndCategories.id = id;
                 productsAndCategories.sortId = sortId;
+                ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
                 return View(productsAndCategories);
             }
 			else {
@@ -129,18 +149,21 @@ namespace CurvaStore.Controllers
                 {
                     productsAndCategories.TotalPages = (int)Math.Ceiling(_db.products.Count() / 15.0);
                     productsAndCategories.products = _db.products.OrderBy(m => m.Id).Skip(skipProduct).Take(15).ToList();
+                    ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                    productsAndCategories.id = id;
+                    productsAndCategories.sortId = sortId;
                     return View(productsAndCategories);
                 }
                 productsAndCategories.TotalPages = (int)Math.Ceiling(_db.products.Where(m => m.CategoroyID == id).Count() / 15.0);
                 productsAndCategories.products = _db.products.Where(m => m.CategoroyID == id).OrderBy(m => m.Id).Skip(skipProduct).Take(15).ToList();
                 productsAndCategories.id = id;
                 productsAndCategories.sortId = sortId;
+                ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
                 return View(productsAndCategories);
             }
         }
         public IActionResult FilterPrice(ProductsAndCategories ?pac ,int ?currPage, int? min, int? max,int ?id)
         {
-            ViewData["numOfCart"] = _db.carts.Count();
             pac.categories = _db.categories.ToList();
             if (currPage == null)
             {
@@ -166,11 +189,11 @@ namespace CurvaStore.Controllers
                 pac.TotalPages = (int)Math.Ceiling(_db.products.Where(m => m.price >= pac.MinPrice && m.price <= pac.MaxPrice&&m.CategoroyID==pac.id).Count() / 15.0);
 
             }
+            ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
             return View(pac);
         }
         public IActionResult Blogs(int ?currPages)
         {
-            ViewData["numOfCart"] = _db.carts.Count();
             BlogsAndPages blogsAndPagescs = new BlogsAndPages();
             if(currPages == null)
             {
@@ -180,17 +203,17 @@ namespace CurvaStore.Controllers
             blogsAndPagescs.blogs=_db.blogs.OrderBy(m=>m.dateTime).Reverse().Skip(skipBlogs).Take(12).ToList();
             blogsAndPagescs.currentPages = (int)currPages;
             blogsAndPagescs.totalPages = (int)Math.Ceiling(_db.blogs.Count() / 12.0);
+            ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
             return View(blogsAndPagescs);
         }
         public IActionResult SingleBlog(int id)
         {
-            ViewData["numOfCart"] = _db.carts.Count();
+            ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
 
             return View(_db.blogs.FirstOrDefault(m => m.Id == id));
         }
         public IActionResult Offers(int ?currPage,int sortId = 5)
         {
-            ViewData["numOfCart"] = _db.carts.Count();
             ProductsAndPages productsAndPagescs = new ProductsAndPages();
             productsAndPagescs.sortId = sortId;
             if (currPage == null)
@@ -224,20 +247,20 @@ namespace CurvaStore.Controllers
             {
                 productsAndPagescs.products = _db.products.Where(m => m.OldPrice != 0).OrderBy(m => m.Id).Skip(skipProducts).Take(20).ToList();
             }
+            ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
             return View(productsAndPagescs);
         }
         public IActionResult SingleProduct(int id)
         {
-            ViewData["numOfCart"] = _db.carts.Count();
-            SingaleProductModelView ProductAndColorsAndSizes= new SingaleProductModelView();
+            SingaleProductModelView ProductAndColorsAndSizes = new SingaleProductModelView();
             ProductAndColorsAndSizes.product = _db.products.Include(m=>m.category).FirstOrDefault(m => m.Id == id);
             ProductAndColorsAndSizes.colorSizes=_db.colorsAndSizes.Where(m=>m.ProductId==id).ToList();
+            ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
             return View(ProductAndColorsAndSizes);
         }
         [HttpPost]
         public IActionResult AddToCart([FromBody] SingleProductInfo spi)
         {
-            ViewData["numOfCart"] = _db.carts.Count();
             string usid = User.FindFirstValue(ClaimTypes.NameIdentifier);
             Cart cart=new Cart();
             cart.productId = spi.ProductId;
@@ -265,20 +288,20 @@ namespace CurvaStore.Controllers
                 _db.carts.Add(cart);           
             }
             _db.SaveChanges();
-            
+            ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
             return Ok(new { success = true,});
         }
         public IActionResult RemoveFromCart(int id)
         {
-            ViewData["numOfCart"] = _db.carts.Count();
-            Cart cart=_db.carts.FirstOrDefault(m=>m.Id==id);
+            Cart cart =_db.carts.FirstOrDefault(m=>m.Id==id);
             _db.carts.Remove(cart);
             _db.SaveChanges();
+            ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
             return View("Cart",_db.carts.Where(m=>m.UserId==User.FindFirstValue(ClaimTypes.NameIdentifier)).Include(m=>m.product).Include(m=>m.colorsize).ToList());
         }
         public IActionResult ViewCart()
         {
-            ViewData["numOfCart"] = _db.carts.Count();
+            ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
             return View("Cart", _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Include(m=>m.product).Include(m=>m.colorsize).ToList());
         }
     }

@@ -1,0 +1,32 @@
+﻿@{
+	Layout = "_CurvaDashBoardLayout";
+}
+@model ContactUs
+<div class="dash-content">
+    <div class="overview">
+        <div class="title">
+            <span class="text" style="color: #d1ab5f;">Show Message</span>
+        </div>
+        <div>
+            <div class="row">
+                <div class="mb-3 col-lg-6 justify-content-center">
+                    <label asp-for="FullName" class="form-label">Full Name</label>
+                    <input asp-for="FullName" type="text" class="form-control"  readonly />
+                </div>
+                <div class="mb-3 col-lg-6 justify-content-center">
+                    <label asp-for="Email" class="form-label">Email</label>
+                    <input asp-for="Email" type="text" class="form-control" readonly/>
+                </div>
+                <div class="mb-3 col-lg-6 justify-content-center">
+                    <label asp-for="Phone" class="form-label">Phone Number</label>
+                    <input asp-for="Phone" type="text" class="form-control" readonly />
+                </div>
+                <div class="mb-3 col-lg-6">
+                    <label asp-for="Message" class="form-label">Message</label>
+                    <textarea asp-for="Message" type="text" class="form-control" readonly></textarea>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
