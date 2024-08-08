@@ -8,5 +8,6 @@ namespace CurvaStore.ModelView
         public int currentPage { get; set; }
         public int totalPages {  get; set; }
         public int ?sortId { get; set; }
+        public List<WishList> wishList { get; set; }
     }
 }

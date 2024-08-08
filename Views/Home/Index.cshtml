@@ -165,10 +165,13 @@
                                         <p class="d-inline-block mb-0 "><span class="text-decoration-line-through text-secondary">@item.OldPrice</span><span class="e text-decoration-line-through text-secondary">EGP</span></p>
                                         <i class="fas fa-shopping-cart carti"></i>
                                         <i class="fas fa-arrow-right arrow"></i>
-
                                     </div>
                                     <div class="tags"><span class="tag offer-tag"> offer </span><!----></div>
-                                </a>
+                                    @if (Model.wishList.FirstOrDefault(m => m.ProductId == item.Id) != null)
+                                    {
+                                        <button class="fav-btn"><i class=" fs-6 fas fa-heart fav-color"></i></button>
+                                    }
+                                </a>  
                             }
                             else
                             {
@@ -180,6 +183,10 @@
                                         <i class="fas fa-shopping-cart carti"></i>
                                         <i class="fas fa-arrow-right arrow"></i>
                                     </div>
+                                    @if (Model.wishList.FirstOrDefault(m => m.ProductId == item.Id) != null)
+                                    {
+                                        <button class="fav-btn"><i class=" fs-6 fas fa-heart fav-color"></i></button>
+                                    }
                                 </a>
                             }
                         }

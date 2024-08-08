@@ -55,20 +55,22 @@
                 </ul>
             </div>
         </div>
-        <div class="row mb-5">
+        <div class="row mb-5" style="text-align:center;">
             @{
-                foreach (var item in Model.products)
+                if (Model.products.Count() != 0)
                 {
-                    <div class="col-md-6 col-12 col-lg-3">
-                        <a asp-controller="Home" asp-action="SingleProduct" asp-route-id="@item.Id">
-                            <div class="card product-card-container mb-5 cursor-pointer">
-                                <div class="card-body pb-0">
-                                    <div class="img-container d-flex justify-content-center align-content-center">
-                                        <img style="width: 100%;" src="~/images/@item.Img">
-                                    </div>
-                                    <div class="card-body p-3">
-                                        <h5 style="white-space: nowrap; overflow: hidden; font-weight: normal;">
-                                            @item.Name</h5>
+                   foreach (var item in Model.products)
+                    {
+                        <div class="col-md-6 col-12 col-lg-3">
+                            <a asp-controller="Home" asp-action="SingleProduct" asp-route-id="@item.Id">
+                                <div class="card product-card-container mb-5 cursor-pointer">
+                                    <div class="card-body pt-0 pb-0">
+                                        <div class="img-container d-flex justify-content-center align-content-center">
+                                            <img style="width: 100%;" src="~/images/@item.Img">
+                                        </div>
+                                        <div class="card-body p-3">
+                                            <h5 style="white-space: nowrap; overflow: hidden; font-weight: normal;">
+                                                @item.Name</h5>
                                             <div class="d-flex justify-content-between align-items-start">
                                                 <p class="font-size-18">
                                                     <span class="font-weight-bold text-warning">@item.price</span><span class="font-size-12"> EGP</span>
@@ -82,12 +84,21 @@
                                                     <i class="fas fa-arrow-right card-arrow-icon font-size-30"></i>
                                                 </span>
                                             </div>
+                                        </div>
+                                        <div class="tags"><span class="tag offer-tag"> offer </span><!----></div>
                                     </div>
-                                    <div class="tags"><span class="tag offer-tag"> offer </span><!----></div>
+                                    @if (Model.wishList.FirstOrDefault(m => m.ProductId == item.Id) != null)
+                                    {
+                                        <button class="fav-btn"><i class=" fs-6 fas fa-heart fav-color"></i></button>
+                                    }
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p style="font-size:20px;font-weight:bold">No Products Found</p>
                 }
             }
         </div>

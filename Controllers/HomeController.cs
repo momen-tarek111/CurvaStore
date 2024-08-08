@@ -16,6 +16,7 @@ namespace CurvaStore.Controllers
 			ProductsBlogs productsBlogs = new ProductsBlogs();
 			productsBlogs.products = _db.products.OrderBy(m=>m.Id).Reverse().Take(4).ToList();
             productsBlogs.blogs = _db.blogs.OrderBy(m=>m.dateTime).Reverse().Take(3).ToList();
+            productsBlogs.wishList =  _db.wishLists.Where(m=>m.UserId==User.FindFirstValue(ClaimTypes.NameIdentifier)).ToList();
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
             return View(productsBlogs);
 		}
@@ -47,6 +48,7 @@ namespace CurvaStore.Controllers
 		public IActionResult Products(int id,int ?currPage, int sortId=5)
 		{
             ProductsAndCategories productsAndCategories = new ProductsAndCategories();
+            productsAndCategories.wishLists = _db.wishLists.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).ToList();
 			productsAndCategories.categories = _db.categories.ToList();
             if (currPage == null)
             {
@@ -247,6 +249,7 @@ namespace CurvaStore.Controllers
             {
                 productsAndPagescs.products = _db.products.Where(m => m.OldPrice != 0).OrderBy(m => m.Id).Skip(skipProducts).Take(20).ToList();
             }
+            productsAndPagescs.wishList = _db.wishLists.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).ToList();
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
             return View(productsAndPagescs);
         }
@@ -256,6 +259,16 @@ namespace CurvaStore.Controllers
             ProductAndColorsAndSizes.product = _db.products.Include(m=>m.category).FirstOrDefault(m => m.Id == id);
             ProductAndColorsAndSizes.colorSizes=_db.colorsAndSizes.Where(m=>m.ProductId==id).ToList();
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+            ProductAndColorsAndSizes.userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if(_db.wishLists.FirstOrDefault(m=>m.UserId== ProductAndColorsAndSizes.userId && m.ProductId == id) == null)
+            {
+                ProductAndColorsAndSizes.wishbool = false;   
+            }
+            else
+            {
+                ProductAndColorsAndSizes.wishList = _db.wishLists.FirstOrDefault(m => m.UserId == ProductAndColorsAndSizes.userId && m.ProductId == id);
+                ProductAndColorsAndSizes.wishbool= true;
+            }
             return View(ProductAndColorsAndSizes);
         }
         [HttpPost]
@@ -289,7 +302,7 @@ namespace CurvaStore.Controllers
             }
             _db.SaveChanges();
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
-            return Ok(new { success = true,});
+            return Ok();
         }
         public IActionResult RemoveFromCart(int id)
         {
@@ -303,6 +316,83 @@ namespace CurvaStore.Controllers
         {
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
             return View("Cart", _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Include(m=>m.product).Include(m=>m.colorsize).ToList());
+        }
+        [HttpPost]
+        public IActionResult RemoveWish ([FromBody]WishModelView wishModelView)
+        {
+            WishList wishList = _db.wishLists.FirstOrDefault(m => m.id == wishModelView.id);
+            _db.wishLists.Remove(wishList);
+            _db.SaveChanges();
+            return Ok();
+        }
+        [HttpPost]
+        public IActionResult AddWish([FromBody] WishModelView wishModelView)
+        {
+            WishList wishList = new WishList();
+            wishList.ProductId = wishModelView.ProductId;
+            wishList.UserId = wishModelView.UserId;
+            _db.wishLists.Add(wishList);
+            _db.SaveChanges();
+            return Ok(wishList.id);
+        }
+        public IActionResult ViewWishList(int? currPage,int sortId=5)
+        {
+            WishListModelView wishListModelView = new WishListModelView();
+            List<WishList> wl = _db.wishLists.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Include(m=>m.product).ToList();
+            if (currPage == null)
+            {
+                currPage = 1;
+            }
+            int skipWhishList = (int)(currPage - 1) * 20;
+            wishListModelView.currpage = (int)currPage;
+            wishListModelView.totalPages = (int)Math.Ceiling(_db.wishLists.Where(m => m.UserId== User.FindFirstValue(ClaimTypes.NameIdentifier)).Count() / 18.0);
+            if (sortId == 1)
+            {
+                wishListModelView.wishLists = wl.OrderBy(m => m.product.price).Skip(skipWhishList).Take(18).ToList();
+            }
+            else if (sortId == 2)
+            {
+                wishListModelView.wishLists = wl.OrderBy(m => m.product.price).Reverse().Skip(skipWhishList).Take(18).ToList();
+
+            }
+            else if (sortId == 3)
+            {
+                wishListModelView.wishLists = wl.OrderBy(m => m.product.Name).Skip(skipWhishList).Take(18).ToList();
+
+            }
+            else if (sortId == 4)
+            {
+                wishListModelView.wishLists = wl.OrderBy(m => m.product.Name).Reverse().Skip(skipWhishList).Take(18).ToList();
+
+            }
+            else if (sortId == 5)
+            {
+                wishListModelView.wishLists = wl.OrderBy(m => m.id).Reverse().Skip(skipWhishList).Take(18).ToList();
+
+            }
+            else if (sortId == 6)
+            {
+                wishListModelView.wishLists = wl.OrderBy(m => m.id).Skip(skipWhishList).Take(18).ToList();
+
+            }
+            
+            wishListModelView.sortID = sortId;
+            ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+            return View(wishListModelView);
+        }
+        [HttpPost]
+        public IActionResult IncreaseQuantityInCart([FromBody] CartModelView cartModelView)
+        {
+            _db.carts.FirstOrDefault(m => m.Id == cartModelView.id).QuantityOfProduct += 1;
+            _db.SaveChanges();
+            return Ok();
+        }
+        [HttpPost]
+        public IActionResult DecreaseQuantityInCart([FromBody] CartModelView cartModelView)
+        {
+            _db.carts.FirstOrDefault(m => m.Id == cartModelView.id).QuantityOfProduct -= 1;
+            _db.SaveChanges();
+            return Ok();
         }
     }
 }

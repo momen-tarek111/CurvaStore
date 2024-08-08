@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CurvaStore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11e66fff696a961c7e42f7eb7aee6f0f0f788b48")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c46f2114922ce552801685d8fcf31c1a571213b5")]
 [assembly: System.Reflection.AssemblyProductAttribute("CurvaStore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CurvaStore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

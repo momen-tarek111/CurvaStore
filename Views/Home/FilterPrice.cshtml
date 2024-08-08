@@ -37,22 +37,26 @@
                 <span class="title-colored-part s1">Category </span>
                 <span class="title-mode-part">Products</span>
             </span>
-            <div class="dropdown d-flex">
-                <button type="button" class="btn-sort btn dropdown-toggle btn-secondary" data-bs-toggle="dropdown">
-                    <span>
-                        <i class="fas fa-sort-alpha-down"></i>
-                        Sort
-                    </span>
-                </button>
-                <ul class="dropdown-menu curva-dropdown">
-                    <li><a class="dropdown-item" asp-controller="Home" asp-action="Products" asp-route-id="@Model.id" asp-route-sortId="1"> Price Accending</a></li>
-                    <li><a class="dropdown-item" asp-controller="Home" asp-action="Products" asp-route-id="@Model.id" asp-route-sortId="2"> Price Deccending</a></li>
-                    <li><a class="dropdown-item" asp-controller="Home" asp-action="Products" asp-route-id="@Model.id" asp-route-sortId="3"> A → Z</a></li>
-                    <li><a class="dropdown-item" asp-controller="Home" asp-action="Products" asp-route-id="@Model.id" asp-route-sortId="4"> Z → A</a></li>
-                    <li><a class="dropdown-item" asp-controller="Home" asp-action="Products" asp-route-id="@Model.id" asp-route-sortId="5"> Newest First</a></li>
-                    <li><a class="dropdown-item" asp-controller="Home" asp-action="Products" asp-route-id="@Model.id" asp-route-sortId="6"> Oldest First</a></li>
-                </ul>
-            </div>
+            @if (Model.products.Count() != 0)
+            {
+                <div class="dropdown d-flex">
+                    <button type="button" class="btn-sort btn dropdown-toggle btn-secondary" data-bs-toggle="dropdown">
+                        <span>
+                            <i class="fas fa-sort-alpha-down"></i>
+                            Sort
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu curva-dropdown">
+                        <li><a class="dropdown-item" asp-controller="Home" asp-action="Products" asp-route-id="@Model.id" asp-route-sortId="1"> Price Accending</a></li>
+                        <li><a class="dropdown-item" asp-controller="Home" asp-action="Products" asp-route-id="@Model.id" asp-route-sortId="2"> Price Deccending</a></li>
+                        <li><a class="dropdown-item" asp-controller="Home" asp-action="Products" asp-route-id="@Model.id" asp-route-sortId="3"> A → Z</a></li>
+                        <li><a class="dropdown-item" asp-controller="Home" asp-action="Products" asp-route-id="@Model.id" asp-route-sortId="4"> Z → A</a></li>
+                        <li><a class="dropdown-item" asp-controller="Home" asp-action="Products" asp-route-id="@Model.id" asp-route-sortId="5"> Newest First</a></li>
+                        <li><a class="dropdown-item" asp-controller="Home" asp-action="Products" asp-route-id="@Model.id" asp-route-sortId="6"> Oldest First</a></li>
+                    </ul>
+                </div>
+            }
+           
         </div>
         <div class="row">
             <div class="col-lg-3 col-12">
@@ -104,11 +108,11 @@
                     </div>
                 </div>
             </div>
-            @if (Model.products.Count() != 0)
-            {
-                <div class="col-lg-9 col-12">
-                    <div class="row mb-5">
-                        @{
+            <div class="col-lg-9 col-12">
+                <div class="row mb-5">
+                    @{
+                        if (Model.products.Count() != 0)
+                        {
                             foreach (var item in Model.products)
                             {
                                 if (item.OldPrice != 0)
@@ -132,38 +136,14 @@
                                                                 <i class="fas fa-arrow-right card-arrow-icon font-size-30"></i>
                                                             </span>
                                                         </div>
+
+                                                        <div class="tags"><span class="tag offer-tag"> offer </span><!----></div>
                                                     </div>
-                                                    <button class="fav-btn"><i class=" font-size-18 far fa-heart"></i></button>
-                                                    <div class="tags"><span class="tag offer-tag"> offer </span><!----></div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                }
-                                else if (item.InStock == false)
-                                {
-                                    <div class="col-md-6 col-12 col-lg-4">
-                                        <a asp-controller="Home" asp-action="SingleProduct" asp-route-id="@item.Id" class="prod">
-                                            <div class="card product-card-container mb-5 cursor-pointer">
-                                                <div class="card-body py-0">
-                                                    <div class="img-container d-flex justify-content-center align-content-center">
-                                                        <img style="width: 100%;" src="~/images/@item.Img">
-                                                    </div>
-                                                    <div class="card-body p-3">
-                                                        <h5 style="white-space: nowrap; overflow: hidden;  text-overflow:ellipsis;  font-weight: normal;">@item.Name</h5>
-                                                        <div class="d-flex justify-content-between align-items-start">
-                                                            <p class="font-size-18">
-                                                                <span class="font-weight-bold text-warning">@item.price</span><span class="font-size-12"> EGP</span>
-                                                            </p>
-                                                            <span class="d-inline-flex product-card-icons-container flex-sm-row flex-column-reverse">
-                                                                <i class="fas fa-shopping-cart  cars font-size-30"></i>
-                                                                <i class="fas fa-arrow-right card-arrow-icon font-size-30"></i>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <button class="fav-btn"><i class=" font-size-18 far fa-heart"></i></button>
-                                                    <div class="tags"><span class="tag soon-tag"> soon </span><!----></div>
-                                                </div>
+                                                @if (Model.wishLists.FirstOrDefault(m => m.ProductId == item.Id) != null)
+                                                {
+                                                    <button class="fav-btn"><i class=" fs-6 fas fa-heart fav-color"></i></button>
+                                                }
                                             </div>
                                         </a>
                                     </div>
@@ -189,17 +169,25 @@
                                                             </span>
                                                         </div>
                                                     </div>
-                                                    <button class="fav-btn"><i class=" font-size-18 far fa-heart"></i></button>
                                                 </div>
+                                                @if (Model.wishLists.FirstOrDefault(m => m.ProductId == item.Id) != null)
+                                                {
+                                                    <button class="fav-btn"><i class=" fs-6 fas fa-heart fav-color"></i></button>
+                                                }
                                             </div>
                                         </a>
                                     </div>
                                 }
                             }
                         }
-                    </div>
+                        else
+                        {
+                            <p style="font-size:20px;font-weight:bold">No Products Found</p>
+                        }
+                    }
                 </div>
-            }
+            </div>
+           
         </div>
         @if (Model.products.Count() != 0)
         {

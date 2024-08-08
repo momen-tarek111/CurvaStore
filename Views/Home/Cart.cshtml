@@ -41,8 +41,8 @@
             <div class="col-lg-9">
                 <div style="border-radius: 10px;" class=" curva-table table-responsive">
                     <table class="table">
-                        <thead role="rowgroup">
-                            <tr role="row">
+                        <thead >
+                            <tr >
                                 <th class="px-3"><div>Product name</div></th>
                                 <th class="px-3"><div>Size</div></th>
                                 <th class="px-3"><div>Unit Price</div></th>
@@ -55,23 +55,25 @@
                             @{
                                 foreach(var item in Model)
                                 {
-                                    <tr class="curva-table-row">
-                                        <td class="px-3">
-                                            <a asp-controller="Home" asp-action="SingleProduct" asp-route-id="@item.product.Id" class="cart-name">
-                                                <img src="~/images/@item.product.Img" class="table-img mx-2 ">
-                                                @item.product.Name
-                                            </a>
-                                        </td>
-                                        <td  class="px-3">@item.colorsize.Size.ToUpper()</td>
-                                        <td  class="px-3 ">@item.product.price<span class="currency">EGP</span></td>
-                                        <td  class="px-3 text-initial">
-                                            <input value="@item.QuantityOfProduct" max="@item.colorsize.Quantity" disabled="disabled" class="table-quantity-text">
-                                        </td>
-                                        <td class="px-3"><span class="sub_price">@((item.QuantityOfProduct)*(item.product.price))</span><span class="currency">EGP</span></td>
-                                        <td  class="px-3 ">
-                                            <a asp-controller="Home" asp-action="RemoveFromCart" asp-route-id="@item.Id" style="color: #c45858;" class="btn remove-btn"><i class="far fa-trash-alt me-2 fs-5"></i> Remove</a>
-                                        </td>
-                                    </tr>
+                                                                            <tr class="curva-table-row cart-row" cartid="@item.Id">
+                                                                                <td class="px-3">
+                                                                                    <a asp-controller="Home" asp-action="SingleProduct" asp-route-id="@item.product.Id" class="cart-name">
+                                                                                        <img src="~/images/@item.product.Img" class="table-img mx-2 ">
+                                                                                        @item.product.Name
+                                                                                    </a>
+                                                                                </td>
+                                                                                <td  class="px-3">@item.colorsize.Size.ToUpper()</td>
+                                                                                <td  class="px-3 ">@item.product.price<span class="currency">EGP</span></td>
+                                                                                <td  class="px-3 text-initial">
+                                                                                    <button type="button" deid="@item.Id" class="btn table-quantity-btn btn-secondary q-d" onclick="decrease(@item.Id)">-</button>
+                                                                                    <input inputid="@item.Id" cartid="@item.Id" price="@item.product.price" price="@item.product.price" value="@item.QuantityOfProduct" max="@item.colorsize.Quantity" disabled="disabled" class="table-quantity-text q-input">
+                                                                                    <button type="button" inid="@item.Id" class="btn table-quantity-btn btn-secondary q-i" onclick="increase(@item.Id)">+</button>
+                                                                                </td>
+                                                                                <td class="px-3"><span class="sub_price" subid="@item.Id"></span><span class="currency">EGP</span></td>
+                                                                                <td  class="px-3 ">
+                                                                                    <a asp-controller="Home" asp-action="RemoveFromCart" asp-route-id="@item.Id" style="color: #c45858;" class="btn remove-btn"><i class="far fa-trash-alt me-2 fs-5"></i> Remove</a>
+                                                                                </td>
+                                                                            </tr>
                                 }
                             }
                         </tbody>
@@ -83,11 +85,11 @@
                     <p class="title text-center">Order Summary</p>
                     <div class="row">
                         <div class="text-start col" style="color: #a09e9e;">Total Items</div>
-                        <div class="text-end col" style="color: #a09e9e;">@Model.Sum(m=>m.QuantityOfProduct)</div>
+                        <div class="text-end col div-q" style="color: #a09e9e;"></div>
                     </div>
                     <div class="row">
                         <div class="text-start col" style="color: #a09e9e;">Subtotal</div>
-                        <div class="text-end col" style="color: #a09e9e;"> @Model.Sum(m =>m.QuantityOfProduct*m.product.price)<span class="currency">EGP</span></div>
+                        <div class="text-end col " style="color: #a09e9e;"><span class="span-subt"></span><span class="currency">EGP</span></div>
                     </div>
                     <div class="row">
                         <div class="text-start col " style="color: #a09e9e;">Tax</div>
@@ -99,7 +101,7 @@
                     </div>
                     <div class="row total-row">
                         <div style="color: #a09e9e;" class="text-start col">Total</div>
-                        <div class="text-end col" style="color: #a09e9e;">@Model.Sum(m => m.QuantityOfProduct * m.product.price) <span class="currency">EGP</span></div>
+                        <div class="text-end col " style="color: #a09e9e;"><span class="span-totalt"></span><span class="currency">EGP</span></div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
@@ -111,3 +113,131 @@
         </div>
     </div>
 </section>
+<script>
+
+    // var qi=document.querySelectorAll(".q-i");
+    // var qd=document.querySelectorAll(".q-d");
+    // var qinput = document.querySelectorAll(".q-input");
+    var divq=document.querySelector(".div-q");
+    var divsubt = document.querySelector(".span-subt");
+    var divtotalt = document.querySelector(".span-totalt");
+    var cartrows=document.querySelectorAll(".cart-row");
+    var i = 0;
+    var j = 0;
+    cartrows.forEach(m => {
+        var carid = m.getAttribute("cartid");
+        var intq = document.querySelector(`[inputid="${carid}"]`);
+        var spansub = document.querySelector(`[subid="${carid}"]`);
+        var priceint = +(intq.getAttribute("price"));
+        var qint = +(intq.getAttribute("value"));
+        var qd = document.querySelector(`[deid="${carid}"]`);
+        var qi = document.querySelector(`[inid = "${carid}"]`);
+        if (intq.getAttribute("value") == "1") {
+            if (!(qd.classList.contains("disabled"))) {
+                qd.classList.add("disabled");
+                qd.setAttribute("disabled", "disabled");
+            }
+        }
+        if (intq.getAttribute("value") == intq.getAttribute("max")) {
+            qi.classList.add("disabled");
+            qi.setAttribute("disabled", "disabled");
+        }
+        i += qint * priceint;
+        j += qint;
+        spansub.innerHTML = qint * priceint;
+    })
+    divq.innerHTML = j;
+    divsubt.innerHTML = i;
+    divtotalt.innerHTML = i;
+    // var qpro = +(qinput.getAttribute("value"));
+    // var pricepro = +(qinput.getAttribute("price"));
+    // var spansunt = document.querySelectorAll(".sub_price")
+    // divq.innerHTML = qpro;
+    // divsubt.innerHTML = qpro * pricepro;
+    // divtotalt.innerHTML = qpro * pricepro;
+    // spansunt
+    function increase(carid){
+        var spansub = document.querySelector(`[subid="${carid}"]`);
+        var intq = document.querySelector(`[inputid="${carid}"]`);
+        var qd = document.querySelector(`[deid="${carid}"]`);
+        var qi = document.querySelector(`[inid="${carid}"]`);
+        console.log(qd)
+        var ii = +(intq.getAttribute("value"));
+        ii = ii + 1;
+        intq.setAttribute("value", ii);
+        if (intq.getAttribute("value") == intq.getAttribute("max")) {
+            qi.classList.add("disabled");
+            qi.setAttribute("disabled", "disabled");
+        }
+        if (intq.getAttribute("value") != "1") {
+            if (qd.classList.contains("disabled")) {
+                qd.classList.remove("disabled");
+                qd.removeAttribute("disabled");
+            }
+        }
+        var qpro = +(intq.getAttribute("value"));
+        var pricepro = +(intq.getAttribute("price"));
+        spansub.innerHTML = pricepro * qpro;
+        j += 1;
+        i += 1 * pricepro
+        divq.innerHTML =j ;
+        divsubt.innerHTML = i;
+        divtotalt.innerHTML = i;
+        var cartid = +(intq.getAttribute("cartid"));
+        console.log(cartid);
+        var cartModelView = {
+            id:cartid
+        }
+        $.ajax({
+            url:"/Home/IncreaseQuantityInCart",
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(cartModelView),
+            success: function () {
+                
+            }
+        })
+    }
+    function decrease(carid) {
+        var spansub = document.querySelector(`[subid="${carid}"]`);
+        var intq = document.querySelector(`[inputid="${carid}"]`);
+        var qd = document.querySelector(`[deid="${carid}"]`);
+        var qi = document.querySelector(`[inid="${carid}"]`);
+        var ii = +(intq.getAttribute("value"));
+        ii = ii - 1;
+        intq.setAttribute("value", ii);
+        if (intq.getAttribute("value") == "1") {
+            if (!(qd.classList.contains("disabled"))) {
+                qd.classList.add("disabled");
+                qd.setAttribute("disabled", "disabled");
+            }
+        }
+        if (intq.getAttribute("value") != intq.getAttribute("max")) {
+            if (qi.classList.contains("disabled")) {
+                qi.classList.remove("disabled");
+                qi.removeAttribute("disabled");
+            }
+        }
+        var qpro = +(intq.getAttribute("value"));
+        var pricepro = +(intq.getAttribute("price"));
+        spansub.innerHTML = pricepro * qpro;
+        j -= 1;
+        i -= 1 * pricepro
+        divq.innerHTML = j;
+        divsubt.innerHTML = i;
+        divtotalt.innerHTML = i;
+        var cartid = +(intq.getAttribute("cartid"));
+        var cartModelView = {
+            id: cartid
+        }
+        $.ajax({
+            url: "/Home/DecreaseQuantityInCart",
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(cartModelView),
+            success: function () {
+                
+            }
+        })
+    }
+</script>

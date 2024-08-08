@@ -29,5 +29,6 @@ namespace CurvaStore.DataBase
         public DbSet<Blog> blogs { get; set; }
         public DbSet<ContactUs> messages { get; set; }
         public DbSet<Cart> carts { get; set; }
+        public DbSet<WishList>wishLists { get; set; }
     }
 }

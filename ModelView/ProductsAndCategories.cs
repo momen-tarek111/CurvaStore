@@ -6,6 +6,7 @@ namespace CurvaStore.ModelView
     {
         public List<Product> products { get; set; }
         public List<Category> categories { get; set; }
+        public List<WishList> wishLists { get; set; }
         public int id { get; set; }
         public int sortId { get; set; }
         public int currPage { get; set; }
