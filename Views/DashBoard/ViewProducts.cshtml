@@ -52,9 +52,30 @@
                                     {
                                         <td data-bs-toggle="tooltip" title="@item.Description" style="overflow:hidden; text-overflow:ellipsis; max-width: 400px;">@item.Description</td>
                                     }
-                                    <td>@item.BrandName</td>
-                                    <td>@item.ClubName</td>
-                                    <td>@item.Season</td>
+                                    @if (item.BrandName.ToLower() == "e")
+                                    {
+                                        <td>Empty</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.BrandName</td>
+                                    }
+                                    @if (item.ClubName.ToLower() == "e")
+                                    {
+                                        <td>Empty</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.ClubName</td>
+                                    }
+                                    @if (item.Season.ToLower() == "e")
+                                    {
+                                        <td>Empty</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.Season</td>
+                                    }
                                     <td>@item.price</td>
                                     <td>@item.OldPrice</td>
                                     <td>@c.Quantity</td>

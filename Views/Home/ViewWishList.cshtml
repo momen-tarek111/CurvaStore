@@ -45,13 +45,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3">
-                <ul class="list-profile">
-                    <li><a href="#" class=""><i class="far fa-user"></i> Profile Info</a></li>
-                    <li><a asp-controller="Home" asp-action="ViewWishList" class="router-link-exact-active router-link-active"><i class="far fa-heart"></i> Wishlist</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-9">
+            <div class="col-12">
                 @if (Model.wishLists.Count() != 0)
                 {
                     <div class="mb-3 pt-3 d-flex justify-content-end">
@@ -81,7 +75,7 @@
                             {
                                 if (item.product.OldPrice == 0)
                                 {
-                                    <div class="col-md-6 col-12 col-lg-4">
+                                    <div class="col-md-4 col-6 col-lg-3">
                                         <a asp-controller="Home" asp-action="SingleProduct" asp-route-id="@item.product.Id">
                                             <div class="card product-card-container mb-5 cursor-pointer">
                                                 <div class="card-body pb-0 pt-0">
