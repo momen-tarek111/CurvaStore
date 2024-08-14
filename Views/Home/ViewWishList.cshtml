@@ -274,7 +274,7 @@
                                     else
                                     {
                                         <li class="page-item ">
-                                            <a asp-controller="Home" asp-action="ViewWishList" asp-route-currPage="@Model.currpage+1" asp-route-sortId="@Model.sortID" class="page-link">›</a>
+                                            <a asp-controller="Home" asp-action="ViewWishList" asp-route-currPage="@(Model.currpage+1)" asp-route-sortId="@Model.sortID" class="page-link">›</a>
                                         </li>
                                         <li class="page-item ">
                                             <a asp-controller="Home" asp-action="ViewWishList" asp-route-currPage="@Model.totalPages" asp-route-sortId="@Model.sortID" class="page-link">»</a>

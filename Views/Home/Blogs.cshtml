@@ -185,7 +185,7 @@
                         else
                         {
                             <li  class="page-item ">
-                                <a asp-controller="Home" asp-action="Blogs" asp-route-currPages="@Model.currentPages+1"  class="page-link">›</a>
+                                <a asp-controller="Home" asp-action="Blogs" asp-route-currPages="@(Model.currentPages+1)"  class="page-link">›</a>
                             </li>
                             <li> role="prss="page-item
                                 <a asp-controller="Home" asp-action="Blogs" asp-route-currPages="@Model.totalPages" class="page-link">»</a>
@@ -198,4 +198,4 @@
         }
         
     </div>
-</section
+</section>

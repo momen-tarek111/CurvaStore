@@ -225,7 +225,7 @@
                             else
                             {
                                 <li class="page-item ">
-                                    <a asp-controller="Home" asp-action="Offers" asp-route-currPage="@Model.currentPage+1" asp-route-sortId="@Model.sortId" class="page-link">›</a>
+                                    <a asp-controller="Home" asp-action="Offers" asp-route-currPage="@(Model.currentPage+1)" asp-route-sortId="@Model.sortId" class="page-link">›</a>
                                 </li>
                                 <li class="page-item ">
                                     <a asp-controller="Home" asp-action="Offers" asp-route-currPage="@Model.totalPages" asp-route-sortId="@Model.sortId" class="page-link">»</a>

@@ -167,6 +167,7 @@ namespace CurvaStore.Controllers
         public IActionResult FilterPrice(ProductsAndCategories ?pac ,int ?currPage, int? min, int? max,int ?id)
         {
             pac.categories = _db.categories.ToList();
+            pac.wishLists = _db.wishLists.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).ToList();
             if (currPage == null)
             {
                 currPage = 1;
