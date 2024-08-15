@@ -61,7 +61,7 @@
                 @{
                     foreach (var item in Model.users)
                     {
-                        <span class="data-list">@item.User.date.ToString()</span>
+                        <span class="data-list">@item.User.date.ToString("dd/MM/yyyy")</span>
                     }
                 }
             </div>

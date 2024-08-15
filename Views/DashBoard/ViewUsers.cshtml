@@ -10,12 +10,29 @@
     </div>
     <div class="activity">
         <div class="activity-data">
+            <div class="data imges">
+                <span class="data-title ">Images</span>
+                @{
+                    foreach (var item in Model)
+                    {
+                        if (item.User.Img != null)
+                        {
+                                <img class="data-list" style="height:50px;width:50px;border-radius:50%;margin-top:32px;margin-bottom:18px" src="~/images/@item.User.Img"></img>
+                        }
+                        else
+                        {
+                            <img class="data-list" style="height:50px;width:50px;border-radius:50%; margin-top:32px;margin-bottom:18px"  src="~/images/th.jpeg"></img>
+                        }
+                    }
+                }
+
+            </div>
             <div class="data names">
                 <span class="data-title">Name</span>
                 @{
                     foreach (var item in Model)
                     {
-                        <span class="data-list">@item.User.FullName</span>
+                        <span class="data-list" style="margin-top: 50px;margin-bottom: 23px;">@item.User.FullName</span>
                     }
                 }
 
@@ -25,16 +42,16 @@
                 @{
                     foreach (var item in Model)
                     {
-                        <span class="data-list">@item.User.Email</span>
+                        <span class="data-list" style="margin-top: 50px;margin-bottom: 23px;">@item.User.Email</span>
                     }
                 }
             </div>
             <div class="data joined">
-                <span class="data-title">Date of birth</span>
+                <span class="data-title">Date@*  of birth *@</span>
                 @{
                     foreach (var item in Model)
                     {
-                        <span class="data-list">@item.User.date.ToString()</span>
+                        <span class="data-list" style="margin-top: 50px;margin-bottom: 23px;">@item.User.date.ToString("dd/MM/yyyy")</span>
                     }
                 }
             </div>
@@ -43,7 +60,7 @@
                 @{
                     foreach (var item in Model)
                     {
-                        <span class="data-list">@item.User.Gender</span>
+                        <span class="data-list" style="margin-top: 50px;margin-bottom: 23px;">@item.User.Gender</span>
                     }
                 }
             </div>
@@ -52,10 +69,10 @@
                 @{
                     foreach (var item in Model)
                     {
-                        <span class="data-list d-flex">
+                        <span style="margin-top: 50px;margin-bottom:23px;" class="data-list d-flex">
                             @foreach (var item2 in item.roles)
                             {
-                                <span>@item2  </span>
+                                <span>@item2</span>
                             }
                         </span>
                     }
@@ -66,7 +83,7 @@
                 @{
                     foreach (var item in Model)
                     {
-                        <span class="data-list d-flex">
+                        <span class="data-list d-flex" style="margin-top: 50px;margin-bottom: 13px;">
                             @foreach (var item2 in item.roles)
                             {
                                 <a asp-controller="DashBoard" asp-action="ChangeRole" asp-route-id="@item.User.Id">

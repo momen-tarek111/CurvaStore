@@ -122,9 +122,9 @@ namespace CurvaStore.Areas.Identity.Pages.Account
             public string Gender { get; set; }
             [Required]
             [Display(Name = "date")]
-            [DataType(DataType.Date)]
+            [DataType(DataType.DateTime)]
             [dateval]
-            public DateOnly date { get; set; }
+            public DateTime date { get; set; }
             [Required]
             [DataType(DataType.PhoneNumber)]
             [RegularExpression(@"^\d{11}$",ErrorMessage ="the phone number is in valid")]
@@ -166,6 +166,7 @@ namespace CurvaStore.Areas.Identity.Pages.Account
                 user.PhoneNumber = Input.MobileNumber;
                 user.Gender=Input.Gender;
                 user.FullName = Input.FullName;
+                user.date= Input.date;
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
@@ -198,7 +199,7 @@ namespace CurvaStore.Areas.Identity.Pages.Account
                 }
                 foreach (var error in result.Errors)
                 {
-                    ViewData["ErrorPass"] = "the Password must contain at least one lowercase character and at least one uppercase charavter and at lest 6 digit";
+                    ViewData["ErrorPass"] = "the Password must contain at least one lowercase character and at least one uppercase charavter and at least one alphanumeric and at lest 6 digit";
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }

@@ -16,9 +16,9 @@ namespace CurvaStore.ModelView
 		[DataType (DataType.PhoneNumber)]
 		public string ?PhoneNumber { get; set; }
 		[Required]
-		[DataType(DataType.Date)]
+		[DataType(DataType.DateTime)]
 		[dateval]
-		public DateOnly ?date {  get; set; }
+		public DateTime date {  get; set; }
 		[Required]
 		public string ?gender {  get; set; }
         [NotMapped]

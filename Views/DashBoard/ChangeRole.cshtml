@@ -24,7 +24,7 @@
                     </div>
                     <div class="mb-3 col-lg-6">
                         <label asp-for="userAndHisRole.User.date" class="form-label">Date of birth</label>
-                        <input asp-for="userAndHisRole.User.date" value="@Model.userAndHisRole.User.date.ToString()" type="text" class="form-control" readonly>
+                        <input asp-for="userAndHisRole.User.date" value="@Model.userAndHisRole.User.date.ToString("dd/MM/yyyy")" type="text" class="form-control" readonly>
                     </div>
                     <div class="mb-3 col-lg-6">
                         <label asp-for="roleName" class="form-label">Role</label>

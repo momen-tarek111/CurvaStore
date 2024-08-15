@@ -7,7 +7,7 @@ namespace CurvaStore.Models
     {
         public string ?FullName { get; set; }
         public string ?Gender { get; set; }
-        public DateOnly ?date { get; set; }
+        public DateTime date { get; set; }
         [NotMapped]
         public IFormFile ?UserImage { get; set; }
         public string? Img { get; set; }
