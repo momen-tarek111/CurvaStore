@@ -119,7 +119,7 @@
                                     </span>
                                 </span>
                                 <span>
-                                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post" class="pt-4">
+                                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post" class="pt-4" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="mb-3 col-lg-12">
                                                 <input autocomplete="off" id="" type="text" asp-for="Input.FullName" placeholder="Full Name" class="form-control">
@@ -147,20 +147,21 @@
                                             </div>
                                             <div class="mb-3 col-lg-12">
                                                 <input autocomplete="off" id="" type="password" asp-for="Input.Password" placeholder="Password" class="form-control">
-                                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                                <span asp-validation-for="Input.Password" class="text-danger">@ViewData["ErrorPass"]</span>
                                             </div>
                                             <div class="mb-3 col-lg-12">
                                                 <input autocomplete="off" id="" type="password" asp-for="Input.ConfirmPassword" placeholder="Repate Password" class="form-control">
                                                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                                             </div>
-                                            @* <div class="mb-3 col-lg-12">
-                                                <div>
-                                                    <input type="checkbox" name="color" class="form-check-input" value="true">
-                                                    <label class="text">
-                                                        <span class="text-gray font-size-16 mx-2">I have read and accept Terms of Conditions</span>
-                                                    </label>
+                                            <div class="mb-3 col-lg-12">
+                                                <div class="w-100 d-flex align-items-center">
+                                                    <label class="form-label col-lg-3" style="color: #939393;" asp-for="Input.UserImage">User Image</label>
+                                                    <div class="col-lg-9">
+                                                        <input class="form-control pt-0" asp-for="Input.UserImage" type="file" accept="image/*" id="formFile">
+                                                    </div>
                                                 </div>
-                                            </div> *@
+                                                <span asp-validation-for="Input.UserImage" class="text-danger"></span>
+                                            </div>
                                             <div class="col-lg-12">
                                                 <button  style="background-color: #d1ab5f;" type="submit" class="btn btn-signup w-100 ">
                                                     <span class="fs-6">Register</span>

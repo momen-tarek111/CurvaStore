@@ -22,7 +22,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.VisualBasic;
 using CurvaStore.Utility;
 using CurvaStore.Validation;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using CurvaStore.ModelView;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 namespace CurvaStore.Areas.Identity.Pages.Account
 {
     public class RegisterModel : PageModel
@@ -30,7 +32,7 @@ namespace CurvaStore.Areas.Identity.Pages.Account
         private readonly SignInManager<CurvaUser> _signInManager;
         private readonly UserManager<CurvaUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-
+        private readonly IHostingEnvironment _hosting;
         private readonly IUserStore<CurvaUser> _userStore;
         private readonly IUserEmailStore<CurvaUser> _emailStore;
 
@@ -43,7 +45,9 @@ namespace CurvaStore.Areas.Identity.Pages.Account
             RoleManager<IdentityRole> roleManager,
             SignInManager<CurvaUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IHostingEnvironment hosting
+            )
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -52,6 +56,7 @@ namespace CurvaStore.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _hosting=hosting;
         }
 
         /// <summary>
@@ -102,6 +107,8 @@ namespace CurvaStore.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
+            /// 
+            [Required]
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
@@ -122,6 +129,10 @@ namespace CurvaStore.Areas.Identity.Pages.Account
             [DataType(DataType.PhoneNumber)]
             [RegularExpression(@"^\d{11}$",ErrorMessage ="the phone number is in valid")]
             public string MobileNumber { get; set; }
+
+            [NotMapped]
+            public IFormFile? UserImage { get; set; }
+            public string? Img { get; set; }
         }
 
 
@@ -144,6 +155,14 @@ namespace CurvaStore.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
                 user.date = Input.date;
+                if(Input.UserImage!= null)
+                {
+                    string imgfolder = Path.Combine(_hosting.WebRootPath, "images");
+                    string imgpath = Path.Combine(imgfolder, Input.UserImage.FileName);
+                    Input.UserImage.CopyTo(new FileStream(imgpath, FileMode.Create));
+                    Input.Img = Input.UserImage.FileName;
+                }
+                user.Img= Input.Img;
                 user.PhoneNumber = Input.MobileNumber;
                 user.Gender=Input.Gender;
                 user.FullName = Input.FullName;
@@ -179,11 +198,10 @@ namespace CurvaStore.Areas.Identity.Pages.Account
                 }
                 foreach (var error in result.Errors)
                 {
-
+                    ViewData["ErrorPass"] = "the Password must contain at least one lowercase character and at least one uppercase charavter and at lest 6 digit";
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
-
             // If we got this far, something failed, redisplay form
             return Page();
         }

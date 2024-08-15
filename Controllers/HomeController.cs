@@ -6,15 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Reflection.Metadata;
 using System.Security.Claims;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace CurvaStore.Controllers
 {
     
-    public class HomeController(ApplicationDbContext _db, UserManager<CurvaUser> _userManager) : Controller
+    public class HomeController(ApplicationDbContext _db, UserManager<CurvaUser> _userManager, SignInManager<CurvaUser> SignInManager,IHostingEnvironment _hosting) : Controller
 	{
-
-       
+        
         public IActionResult Index()
 		{
 			ProductsBlogs productsBlogs = new ProductsBlogs();
@@ -22,16 +23,40 @@ namespace CurvaStore.Controllers
             productsBlogs.blogs = _db.blogs.OrderBy(m=>m.dateTime).Reverse().Take(3).ToList();
             productsBlogs.wishList =  _db.wishLists.Where(m=>m.UserId==User.FindFirstValue(ClaimTypes.NameIdentifier)).ToList();
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             return View(productsBlogs);
 		}
 		public IActionResult About()
 		{
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             return View();
 		}
 		public IActionResult ContactUs()
 		{
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             return View();
 		}
 		public IActionResult SubmitMeassage(ContactUs Cus)
@@ -39,6 +64,14 @@ namespace CurvaStore.Controllers
             if (!ModelState.IsValid)
 			{
                 ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                {
+                    ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                }
+                else
+                {
+                    ViewData["userImg"] = "";
+                }
                 return View("ContactUs",Cus);
 			}
 			else
@@ -46,6 +79,14 @@ namespace CurvaStore.Controllers
 				_db.messages.Add(Cus);
 				_db.SaveChanges();
                 ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                {
+                    ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                }
+                else
+                {
+                    ViewData["userImg"] = "";
+                }
                 return RedirectToAction("Index");
 			}
 		}
@@ -69,14 +110,29 @@ namespace CurvaStore.Controllers
                     ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
                     productsAndCategories.id = id;
                     productsAndCategories.sortId = sortId;
+                    if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                    {
+                        ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                    }
+                    else
+                    {
+                        ViewData["userImg"] = "";
+                    }
                     return View(productsAndCategories);
                 }
-
                 productsAndCategories.TotalPages = (int)Math.Ceiling(_db.products.Where(m => m.CategoroyID == id).Count() / 15.0);
                 productsAndCategories.products = _db.products.Where(m => m.CategoroyID == id).OrderBy(m => m.price).Skip(skipProduct).Take(15).ToList();
                 productsAndCategories.id = id;
                 productsAndCategories.sortId = sortId;
                 ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                {
+                    ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                }
+                else
+                {
+                    ViewData["userImg"] = "";
+                }
                 return View(productsAndCategories);
             }
 			else if(sortId == 2)
@@ -86,6 +142,14 @@ namespace CurvaStore.Controllers
                     productsAndCategories.TotalPages = (int)Math.Ceiling(_db.products.Count() / 15.0);
                     productsAndCategories.products = _db.products.OrderBy(m => m.price).Reverse().Skip(skipProduct).Take(15).ToList();
                     ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                    if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                    {
+                        ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                    }
+                    else
+                    {
+                        ViewData["userImg"] = "";
+                    }
                     productsAndCategories.id = id;
                     productsAndCategories.sortId = sortId;
                     return View(productsAndCategories);
@@ -95,6 +159,14 @@ namespace CurvaStore.Controllers
                 productsAndCategories.id = id;
                 productsAndCategories.sortId = sortId;
                 ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                {
+                    ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                }
+                else
+                {
+                    ViewData["userImg"] = "";
+                }
                 return View(productsAndCategories);
             }
 			else if(sortId==3) {
@@ -104,6 +176,14 @@ namespace CurvaStore.Controllers
                     productsAndCategories.TotalPages = (int)Math.Ceiling(_db.products.Count() / 15.0);
                     productsAndCategories.products = _db.products.OrderBy(m => m.Name).Skip(skipProduct).Take(15).ToList();
                     ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                    if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                    {
+                        ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                    }
+                    else
+                    {
+                        ViewData["userImg"] = "";
+                    }
                     productsAndCategories.id = id;
                     productsAndCategories.sortId = sortId;
                     return View(productsAndCategories);
@@ -113,6 +193,14 @@ namespace CurvaStore.Controllers
                 productsAndCategories.id = id;
                 productsAndCategories.sortId = sortId;
                 ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                {
+                    ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                }
+                else
+                {
+                    ViewData["userImg"] = "";
+                }
                 return View(productsAndCategories);
             }
 			else if(sortId==4) {
@@ -122,6 +210,14 @@ namespace CurvaStore.Controllers
                     productsAndCategories.TotalPages = (int)Math.Ceiling(_db.products.Count() / 15.0);
                     productsAndCategories.products = _db.products.OrderBy(m => m.Name).Reverse().Skip(skipProduct).Take(15).ToList();
                     ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                    if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                    {
+                        ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                    }
+                    else
+                    {
+                        ViewData["userImg"] = "";
+                    }
                     productsAndCategories.id = id;
                     productsAndCategories.sortId = sortId;
                     return View(productsAndCategories);
@@ -130,7 +226,14 @@ namespace CurvaStore.Controllers
                 productsAndCategories.products = _db.products.Where(m => m.CategoroyID == id).OrderBy(m => m.Name).Reverse().Skip(skipProduct).Take(15).ToList();
                 productsAndCategories.id = id;
                 productsAndCategories.sortId = sortId;
-                ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                {
+                    ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                }
+                else
+                {
+                    ViewData["userImg"] = "";
+                }
                 return View(productsAndCategories);
             }
 			else if (sortId==5) {
@@ -139,6 +242,14 @@ namespace CurvaStore.Controllers
                     productsAndCategories.TotalPages = (int)Math.Ceiling(_db.products.Count() / 15.0);
                     productsAndCategories.products = _db.products.OrderBy(m => m.Id).Reverse().Skip(skipProduct).Take(15).ToList();
                     ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                    if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                    {
+                        ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                    }
+                    else
+                    {
+                        ViewData["userImg"] = "";
+                    }
                     productsAndCategories.id = id;
                     productsAndCategories.sortId = sortId;
                     return View(productsAndCategories);
@@ -148,6 +259,14 @@ namespace CurvaStore.Controllers
                 productsAndCategories.id = id;
                 productsAndCategories.sortId = sortId;
                 ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                {
+                    ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                }
+                else
+                {
+                    ViewData["userImg"] = "";
+                }
                 return View(productsAndCategories);
             }
 			else {
@@ -156,6 +275,14 @@ namespace CurvaStore.Controllers
                     productsAndCategories.TotalPages = (int)Math.Ceiling(_db.products.Count() / 15.0);
                     productsAndCategories.products = _db.products.OrderBy(m => m.Id).Skip(skipProduct).Take(15).ToList();
                     ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                    if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                    {
+                        ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                    }
+                    else
+                    {
+                        ViewData["userImg"] = "";
+                    }
                     productsAndCategories.id = id;
                     productsAndCategories.sortId = sortId;
                     return View(productsAndCategories);
@@ -165,6 +292,14 @@ namespace CurvaStore.Controllers
                 productsAndCategories.id = id;
                 productsAndCategories.sortId = sortId;
                 ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                {
+                    ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                }
+                else
+                {
+                    ViewData["userImg"] = "";
+                }
                 return View(productsAndCategories);
             }
         }
@@ -197,6 +332,14 @@ namespace CurvaStore.Controllers
 
             }
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             return View(pac);
         }
         public IActionResult Blogs(int ?currPages)
@@ -211,12 +354,27 @@ namespace CurvaStore.Controllers
             blogsAndPagescs.currentPages = (int)currPages;
             blogsAndPagescs.totalPages = (int)Math.Ceiling(_db.blogs.Count() / 12.0);
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             return View(blogsAndPagescs);
         }
         public IActionResult SingleBlog(int id)
         {
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
-
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             return View(_db.blogs.FirstOrDefault(m => m.Id == id));
         }
         public IActionResult Offers(int ?currPage,int sortId = 5)
@@ -256,6 +414,14 @@ namespace CurvaStore.Controllers
             }
             productsAndPagescs.wishList = _db.wishLists.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).ToList();
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             return View(productsAndPagescs);
         }
         public IActionResult SingleProduct(int id)
@@ -264,6 +430,14 @@ namespace CurvaStore.Controllers
             ProductAndColorsAndSizes.product = _db.products.Include(m=>m.category).FirstOrDefault(m => m.Id == id);
             ProductAndColorsAndSizes.colorSizes=_db.colorsAndSizes.Where(m=>m.ProductId==id).ToList();
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             ProductAndColorsAndSizes.userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if(_db.wishLists.FirstOrDefault(m=>m.UserId== ProductAndColorsAndSizes.userId && m.ProductId == id) == null)
             {
@@ -307,6 +481,14 @@ namespace CurvaStore.Controllers
             }
             _db.SaveChanges();
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             return Ok();
         }
         public IActionResult RemoveFromCart(int id)
@@ -315,17 +497,41 @@ namespace CurvaStore.Controllers
             _db.carts.Remove(cart);
             _db.SaveChanges();
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             return View("Cart",_db.carts.Where(m=>m.UserId==User.FindFirstValue(ClaimTypes.NameIdentifier)).Include(m=>m.product).Include(m=>m.colorsize).ToList());
         }
         public IActionResult ViewCart()
         {
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             return View("Cart", _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Include(m=>m.product).Include(m=>m.colorsize).ToList());
         }
         [HttpPost]
         public IActionResult RemoveWish ([FromBody]WishModelView wishModelView)
         {
             WishList wishList = _db.wishLists.FirstOrDefault(m => m.id == wishModelView.id);
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             _db.wishLists.Remove(wishList);
             _db.SaveChanges();
             return Ok();
@@ -333,6 +539,14 @@ namespace CurvaStore.Controllers
         [HttpPost]
         public IActionResult AddWish([FromBody] WishModelView wishModelView)
         {
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             WishList wishList = new WishList();
             wishList.ProductId = wishModelView.ProductId;
             wishList.UserId = wishModelView.UserId;
@@ -342,6 +556,14 @@ namespace CurvaStore.Controllers
         }
         public IActionResult ViewWishList(int? currPage,int sortId=5)
         {
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             WishListModelView wishListModelView = new WishListModelView();
             List<WishList> wl = _db.wishLists.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Include(m=>m.product).ToList();
             if (currPage == null)
@@ -388,6 +610,14 @@ namespace CurvaStore.Controllers
         [HttpPost]
         public IActionResult IncreaseQuantityInCart([FromBody] CartModelView cartModelView)
         {
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             _db.carts.FirstOrDefault(m => m.Id == cartModelView.id).QuantityOfProduct += 1;
             _db.SaveChanges();
             return Ok();
@@ -395,18 +625,42 @@ namespace CurvaStore.Controllers
         [HttpPost]
         public IActionResult DecreaseQuantityInCart([FromBody] CartModelView cartModelView)
         {
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             _db.carts.FirstOrDefault(m => m.Id == cartModelView.id).QuantityOfProduct -= 1;
             _db.SaveChanges();
             return Ok();
         }
         public IActionResult Profile()
         {
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
             var user =_db.Users.FirstOrDefault(m=>m.Id== User.FindFirstValue(ClaimTypes.NameIdentifier));
             return View(user);
         }
         public IActionResult ChangePassword()
         {
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
             ChangePasswordAndMassage changePasswordAndMassage = new ChangePasswordAndMassage();
             changePasswordAndMassage.massage = "";
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
@@ -426,17 +680,41 @@ namespace CurvaStore.Controllers
                 {
                     _db.SaveChanges();
                     ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                    if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                    {
+                        ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                    }
+                    else
+                    {
+                        ViewData["userImg"] = "";
+                    }
                     return RedirectToAction("profile");
                 }
                 else
                 {
                     ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                    if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                    {
+                        ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                    }
+                    else
+                    {
+                        ViewData["userImg"] = "";
+                    }
                     changePasswordAndMassage.massage = "The current Password is not correct";
                     return View(changePasswordAndMassage);
                 }
             }
             else
             {
+                if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                {
+                    ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                }
+                else
+                {
+                    ViewData["userImg"] = "";
+                }
                 ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
                 return View(changePasswordAndMassage);
             }
@@ -444,19 +722,56 @@ namespace CurvaStore.Controllers
         public IActionResult EditProfile()
         {
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
-            return View();
+            if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+            {
+                ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+            }
+            else
+            {
+                ViewData["userImg"] = "";
+            }
+            var user = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
+            Editprofile editprofile = new Editprofile();
+            editprofile.FullName = user.FullName;
+            editprofile.PhoneNumber = user.PhoneNumber;
+            editprofile.gender = user.Gender;
+            editprofile.date = user.date;
+            editprofile.Email = user.Email;
+            editprofile.Img = user.Img;
+            return View(editprofile);
         }
         [HttpPost]
-        public IActionResult EditProfile(EditProfile editProfile)
+        public IActionResult EditProfile(Editprofile editProfile)
         {
+            if (editProfile.UserImage == null)
+            {
+                ModelState.Remove("UserImage");
+            }
             if (!(ModelState.IsValid))
             {
+                if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                {
+                    ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                }
+                else
+                {
+                    ViewData["userImg"] = "";
+                }
                 ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
                 return View(editProfile);
             }
             else
             {
+                
                 var user = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
+                if (editProfile.UserImage != null)
+                {
+                    string imgfolder = Path.Combine(_hosting.WebRootPath, "images");
+                    string imgpath = Path.Combine(imgfolder, editProfile.UserImage.FileName);
+                    editProfile.UserImage.CopyTo(new FileStream(imgpath, FileMode.Create));
+                    editProfile.Img = editProfile.UserImage.FileName;
+                    user.Img = editProfile.Img;
+                }
                 user.FullName = editProfile.FullName;
                 user.date = editProfile.date;
                 user.PhoneNumber = editProfile.PhoneNumber;
@@ -464,6 +779,14 @@ namespace CurvaStore.Controllers
                 user.Email = editProfile.Email;
                 _db.SaveChanges();
                 ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
+                {
+                    ViewData["userImg"] = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img;
+                }
+                else
+                {
+                    ViewData["userImg"] = "";
+                }
                 return RedirectToAction("Profile");
             }
         }

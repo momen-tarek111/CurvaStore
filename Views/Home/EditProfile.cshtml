@@ -1,7 +1,7 @@
 ﻿@{
 	Layout = "_CurvaStoreLayout";
 }
-@model EditProfile
+@model Editprofile
 <div class="cover_header_page">
     <div class="overlay-cover-page d-flex align-items-end">
         <div class="container de">
@@ -55,33 +55,48 @@
                 </ul>
             </div>
             <div class="col-lg-9">
-                <form method="post" style="background-color: #e5e6ea;" class="p-5 mb-5">
+                <form method="post" style="background-color: #e5e6ea;" class="p-5 mb-5" enctype="multipart/form-data">
                     <div class="row justify-content-center">
                         <div class="col-lg-6 pt-3">
                             <div class="row">
                                 <div class="mb-4 col-lg-12">
-                                    <input autocomplete="off" asp-for="@Model.FullName" type="text"  placeholder="Full Name" class="form-control">
+                                    <input autocomplete="off" value="@Model.FullName" asp-for="@Model.FullName" type="text"  placeholder="Full Name" class="form-control">
                                     <span asp-validation-for="FullName" class="text-danger"></span>
                                 </div>
                                 <div class="mb-4 col-lg-12">
-                                    <input autocomplete="off" type="text" asp-for="@Model.Email" placeholder="Email Address" class="form-control">
+                                    <input autocomplete="off" type="text" value="@Model.Email" asp-for="@Model.Email" placeholder="Email Address" class="form-control">
                                     <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                                 <div class="mb-4 col-lg-12">
-                                    <input autocomplete="off" type="text" asp-for="@Model.PhoneNumber" placeholder="Mobile Number" class="form-control">
+                                    <input autocomplete="off" value="@Model.PhoneNumber" type="text" asp-for="@Model.PhoneNumber" placeholder="Mobile Number" class="form-control">
                                     <span class="text-danger" asp-validation-for="PhoneNumber"></span>
                                 </div>
                                 <div class="mb-4 col-lg-6">
-                                    <input autocomplete="off" type="date" asp-for="@Model.date" placeholder="Date Of Birth" class="form-control">
+                                    <input autocomplete="off" type="date" value="@Model.date.Value" asp-for="@Model.date" placeholder="Date Of Birth" class="form-control">
                                     <span class="text-danger" asp-validation-for="date"></span>
                                 </div>
                                 <div class="mb-4 col-lg-6">
                                     <select style="width: 100% !important;height: 45px !important;font-size: 16px !important;border: 1px solid #ccc !important;border-radius: 10px !important;padding: 5px 10px !important;background-color: transparent !important;" asp-for="@Model.gender">
-                                        <option value="" disabled selected>-- Select Gender --</option>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
+                                        @if (Model.gender.ToLower()== "male")
+                                        {
+                                            <option value="male" selected>Male</option>
+                                            <option value="female">Female</option>
+                                        }
+                                        else{
+                                            <option selected value="female">Female</option>
+                                            <option value="male">Male</option>
+                                        }
                                     </select>
                                     <span class="text-danger" asp-validation-for="gender"></span>
+                                </div>
+                                <div class="mb-3 col-lg-12">
+                                    <div class="w-100 d-flex align-items-center">
+                                        <label class="form-label col-lg-3" style="color: #939393;" asp-for="UserImage">User Image</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control pt-0" asp-for="UserImage" type="file" accept="image/*" id="formFile">
+                                        </div>
+                                    </div>
+                                    <span asp-validation-for="UserImage" class="text-danger"></span>
                                 </div>
                                 <div class="text-center col-lg-12">
                                     <a asp-controller="Home" asp-action="Profile"><button type="button" class="btn grey-btn small-rounded-btn mx-3 btn-secondary">Discard</button></a>

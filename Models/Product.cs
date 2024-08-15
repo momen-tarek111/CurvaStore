@@ -12,10 +12,10 @@ namespace CurvaStore.Models
         [RegularExpression(@"^\d{5}$", ErrorMessage = "you must enter numbers only and length must be 5 digit")]
         public string code { get; set; }
         [Required(ErrorMessage = "you must enter the Product Name")]
-        [StringLength(50,ErrorMessage ="the name is very long,don't enter greater than 50 chars")]
+        [StringLength(500,ErrorMessage ="the name is very long,don't enter greater than 500 chars")]
         public string Name { get; set; }
         [Required(ErrorMessage = "you must enter the Product Description if no found Description enter e ")]
-        [StringLength(1000, ErrorMessage = "the name is very long,don't enter greater than 200 chars")]
+        [StringLength(2500, ErrorMessage = "the name is very long,don't enter greater than 2500 chars")]
         public string Description { get; set; }
         [Required(ErrorMessage = "you must enter the Product Price")]
         [Range(1,50000,ErrorMessage ="You must enter value between 1 to 50000")]

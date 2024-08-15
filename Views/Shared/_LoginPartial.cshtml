@@ -29,7 +29,17 @@
         </li>
         <li>
             <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn "><img class="rounded-circle" src="~/images/th.jpeg" alt=""></button>
+                <button onclick="myFunction()" class="dropbtn ">
+                    @if (ViewData["userImg"] == "")
+                    {
+                        <img class="rounded-circle" src="~/images/th.jpeg" alt="">
+
+                    }
+                    else
+                    {
+                        <img class="rounded-circle" src="~/images/@ViewData["userImg"]" alt="">
+                    }
+                </button>
                 <div id="myDropdown" class="dropdown-content">
                     <a asp-controller="Home" asp-action="Profile"><i class="far fa-user"></i>Profile Info</a>
                         <a asp-controller="Home" asp-action="ViewWishList"><i class="far fa-heart"></i>Wishlist</a>

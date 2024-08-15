@@ -1,25 +1,29 @@
 ﻿using CurvaStore.Validation;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CurvaStore.ModelView
 {
-	public class EditProfile
+	public class Editprofile
 	{
 		[Required]
-		public string FullName { get; set; }
+		public string ?FullName { get; set; }
 		[Required]
 		[EmailAddress]
 		[DataType(DataType.EmailAddress)]
-		public string Email { get; set; }
+		public string ?Email { get; set; }
 		[Required]
 		[DataType (DataType.PhoneNumber)]
-		public string PhoneNumber { get; set; }
+		public string ?PhoneNumber { get; set; }
 		[Required]
 		[DataType(DataType.Date)]
 		[dateval]
-		public DateOnly date {  get; set; }
+		public DateOnly ?date {  get; set; }
 		[Required]
-		public string gender {  get; set; }
+		public string ?gender {  get; set; }
+        [NotMapped]
+        public IFormFile? UserImage { get; set; }
+        public string? Img { get; set; }
 
-	}
+    }
 }
