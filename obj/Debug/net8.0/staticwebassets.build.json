@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FSpkkIiNdGuHabVsB+WH36I2ihYxPzeELuRpQVcHTpM=",
+  "Hash": "1DHRqXmqqO8909yXbsYC8796kJENo4ck9eotkznvv5Q=",
   "Source": "CurvaStore",
   "BasePath": "_content/CurvaStore",
   "Mode": "Default",
@@ -1290,12 +1290,12 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\icon.ico",
       "SourceId": "CurvaStore",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\",
       "BasePath": "_content/CurvaStore",
-      "RelativePath": "favicon.ico",
+      "RelativePath": "icon.ico",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1306,7 +1306,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\favicon.ico"
+      "OriginalItemSpec": "wwwroot\\icon.ico"
     },
     {
       "Identity": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\07icn9ql.png",
