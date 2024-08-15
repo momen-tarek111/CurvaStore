@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ry1YtTxfYi8ux86a51/H4XQkPdac7t+iofEHJDYrtrw=",
+  "Hash": "YTfeAP3IZ9KPotd4vksOc7tkin+d/+CWbso+/reeL2E=",
   "Source": "CurvaStore",
   "BasePath": "_content/CurvaStore",
   "Mode": "Default",
@@ -2468,6 +2468,25 @@
       "OriginalItemSpec": "wwwroot\\images\\download (14).png"
     },
     {
+      "Identity": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (15).png",
+      "SourceId": "CurvaStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\",
+      "BasePath": "_content/CurvaStore",
+      "RelativePath": "images/download (15).png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\download (15).png"
+    },
+    {
       "Identity": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (2).png",
       "SourceId": "CurvaStore",
       "SourceType": "Discovered",
@@ -2751,6 +2770,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\main-cover.3543edb9.png"
+    },
+    {
+      "Identity": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\male.png",
+      "SourceId": "CurvaStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\",
+      "BasePath": "_content/CurvaStore",
+      "RelativePath": "images/male.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\male.png"
     },
     {
       "Identity": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\our-story.7d98795c.png",

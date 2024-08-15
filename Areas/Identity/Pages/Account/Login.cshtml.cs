@@ -75,6 +75,7 @@ namespace CurvaStore.Areas.Identity.Pages.Account
             /// </summary>
             [Required]
             [DataType(DataType.Password)]
+            
             public string Password { get; set; }
 
             /// <summary>
@@ -83,6 +84,8 @@ namespace CurvaStore.Areas.Identity.Pages.Account
             /// </summary>
             [Display(Name = "Remember me?")]
             public bool RememberMe { get; set; }
+
+           
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -130,6 +133,7 @@ namespace CurvaStore.Areas.Identity.Pages.Account
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ErrorMessage = "The password is invalid";
                     return Page();
                 }
             }

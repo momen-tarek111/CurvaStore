@@ -7,8 +7,7 @@ namespace CurvaStore.Validation
     {
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
-              Blog blog =  (Blog)validationContext.ObjectInstance;
-              
+             
               DateTime date;
               if(DateTime.TryParse(value.ToString(), out date)) {
                     if (date > DateTime.Now)

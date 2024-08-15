@@ -5,7 +5,7 @@ namespace CurvaStore.ModelView
 {
     public class UserAndHisRole
     {
-        public CurvaUser User { get; set; }
-        public List<string> roles { get; set; }
+        public CurvaUser ?User { get; set; }
+        public List<string> ?roles { get; set; }
     }
 }

@@ -1,0 +1,68 @@
+﻿@{
+	Layout = "_CurvaDashBoardLayout";
+}
+@model Changerole
+<div class="dash-content">
+    <div class="overview">
+        <div class="title">
+            <span class="text" style="color: #d1ab5f;">Change Role</span>
+        </div>
+        <div>
+            <div class="row">
+                <form method="post">
+                    <div class="mb-3 col-lg-6 justify-content-center">
+                        <label asp-for="userAndHisRole.User.FullName" class="form-label">Full Name</label>
+                        <input asp-for="userAndHisRole.User.FullName" type="text" class="form-control" readonly />
+                    </div>
+                    <div class="mb-3 col-lg-6 justify-content-center">
+                        <label asp-for="userAndHisRole.User.Email" class="form-label">Email</label>
+                        <input asp-for="userAndHisRole.User.Email" type="text" class="form-control" readonly />
+                    </div>
+                    <div class="mb-3 col-lg-6 justify-content-center">
+                        <label asp-for="userAndHisRole.User.Gender" class="form-label">Gender</label>
+                        <input asp-for="userAndHisRole.User.Gender" type="text" class="form-control" readonly />
+                    </div>
+                    <div class="mb-3 col-lg-6">
+                        <label asp-for="userAndHisRole.User.date" class="form-label">Date of birth</label>
+                        <input asp-for="userAndHisRole.User.date" value="@Model.userAndHisRole.User.date.ToString()" type="text" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3 col-lg-6">
+                        <label asp-for="roleName" class="form-label">Role</label>
+                        <select class="form-select" asp-for="roleName">
+                            @{
+                                bool flag = true;
+                                string nn = "";
+                                foreach(var item in Model.Roles)
+                                {
+                                    if (flag)
+                                    {
+                                        foreach (var item2 in Model.userAndHisRole.roles)
+                                        {
+                                            if (item == item2)
+                                            {
+                                                flag = false;
+                                                nn = item2;
+                                                <option selected value="@item">@item</option>
+                                            }
+                                        }
+                                    }
+                                    if (nn != item)
+                                    {
+                                        <option value="@item">@item</option>
+                                    }
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="roleName" class="text-danger"></span>
+                    </div>
+                    <input class="d-none" value="@Model.userAndHisRole.User.Id" asp-for="userAndHisRole.User.Id"></input>
+                    <div class="mb-3 col-lg-12 d-flex justify-content-center">
+                        <button type="submit" class="btn butt">Submit</button>
+                    </div>
+                </form>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>

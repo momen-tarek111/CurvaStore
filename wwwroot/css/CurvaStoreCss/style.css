@@ -1180,3 +1180,6 @@ td, th {
 .fav-color {
     color: #c45858;
 }
+/*.select_edit_profile {
+    width: 100% !important;height: 45px !important;font-size: 16px !important;border: 1px solid #ccc !important;border-radius: 10px !important;padding: 5px 10px !important;background-color: transparent !important;
+}*/

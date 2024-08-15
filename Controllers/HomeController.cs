@@ -1,15 +1,19 @@
 using CurvaStore.DataBase;
 using CurvaStore.Models;
 using CurvaStore.ModelView;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Security.Claims;
 
 namespace CurvaStore.Controllers
 {
-	public class HomeController(ApplicationDbContext _db) : Controller
+    
+    public class HomeController(ApplicationDbContext _db, UserManager<CurvaUser> _userManager) : Controller
 	{
+
        
         public IActionResult Index()
 		{
@@ -394,6 +398,74 @@ namespace CurvaStore.Controllers
             _db.carts.FirstOrDefault(m => m.Id == cartModelView.id).QuantityOfProduct -= 1;
             _db.SaveChanges();
             return Ok();
+        }
+        public IActionResult Profile()
+        {
+            ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+            var user =_db.Users.FirstOrDefault(m=>m.Id== User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return View(user);
+        }
+        public IActionResult ChangePassword()
+        {
+            ChangePasswordAndMassage changePasswordAndMassage = new ChangePasswordAndMassage();
+            changePasswordAndMassage.massage = "";
+            ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+            return View(changePasswordAndMassage);
+        }
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(ChangePasswordAndMassage changePasswordAndMassage)
+        {
+            /*            var user = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
+            */
+            var user=await _userManager.GetUserAsync(User);
+            
+            if (ModelState.IsValid)
+            {
+                var result = await _userManager.ChangePasswordAsync(user, changePasswordAndMassage.changePassword.currpassword, changePasswordAndMassage.changePassword.newpassword);
+                if(result.Succeeded)
+                {
+                    _db.SaveChanges();
+                    ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                    return RedirectToAction("profile");
+                }
+                else
+                {
+                    ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                    changePasswordAndMassage.massage = "The current Password is not correct";
+                    return View(changePasswordAndMassage);
+                }
+            }
+            else
+            {
+                ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                return View(changePasswordAndMassage);
+            }
+        }
+        public IActionResult EditProfile()
+        {
+            ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+            return View();
+        }
+        [HttpPost]
+        public IActionResult EditProfile(EditProfile editProfile)
+        {
+            if (!(ModelState.IsValid))
+            {
+                ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                return View(editProfile);
+            }
+            else
+            {
+                var user = _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
+                user.FullName = editProfile.FullName;
+                user.date = editProfile.date;
+                user.PhoneNumber = editProfile.PhoneNumber;
+                user.Gender = editProfile.gender;
+                user.Email = editProfile.Email;
+                _db.SaveChanges();
+                ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
+                return RedirectToAction("Profile");
+            }
         }
     }
 }

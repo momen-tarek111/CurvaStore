@@ -45,7 +45,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-lg-3">
+                <ul class="list-profile">
+                    <li><a asp-action="Profile" asp-controller="Home"><i class="far fa-user"></i> Profile Info</a></li>
+                    <li><span style="font-size: 18px;font-weight: 500;" class="router-link-exact-active router-link-active"><i class="far fa-heart"></i> Wishlist</span></li>
+                </ul>
+            </div>
+            <div class="col-lg-9">
                 @if (Model.wishLists.Count() != 0)
                 {
                     <div class="mb-3 pt-3 d-flex justify-content-end">
@@ -75,7 +81,7 @@
                             {
                                 if (item.product.OldPrice == 0)
                                 {
-                                    <div class="col-md-4 col-6 col-lg-3">
+                                    <div class="col-md-6 col-6 col-lg-4">
                                         <a asp-controller="Home" asp-action="SingleProduct" asp-route-id="@item.product.Id">
                                             <div class="card product-card-container mb-5 cursor-pointer">
                                                 <div class="card-body pb-0 pt-0">
@@ -105,7 +111,7 @@
                                 }
                                 else
                                 {
-                                    <div class="col-md-6 col-12 col-lg-4">
+                                    <div class="col-md-6 col-6 col-lg-4">
                                         <a asp-controller="Home" asp-action="SingleProduct" asp-route-id="@item.product.Id">
                                             <div class="card product-card-container mb-5 cursor-pointer">
                                                 <div class="card-body pb-0 pt-0">
@@ -268,7 +274,7 @@
                                     else
                                     {
                                         <li class="page-item ">
-                                            <a asp-controller="Home" asp-action="ViewWishList" asp-route-currPage="@(Model.currpage+1)" asp-route-sortId="@Model.sortID" class="page-link">›</a>
+                                            <a asp-controller="Home" asp-action="ViewWishList" asp-route-currPage="@Model.currpage+1" asp-route-sortId="@Model.sortID" class="page-link">›</a>
                                         </li>
                                         <li class="page-item ">
                                             <a asp-controller="Home" asp-action="ViewWishList" asp-route-currPage="@Model.totalPages" asp-route-sortId="@Model.sortID" class="page-link">»</a>

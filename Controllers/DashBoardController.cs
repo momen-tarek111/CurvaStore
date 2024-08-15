@@ -45,7 +45,7 @@ namespace CurvaStore.Controllers
             dashBoardHomeModelView.users = dashBoardHomeModelView.users.Take(5).ToList();
             return View(dashBoardHomeModelView);
         }
-        public async Task<IActionResult> ViewUsersAsync()
+        public async Task<IActionResult> ViewUsers()
         {
             List<UserAndHisRole> users = new List<UserAndHisRole>();
             
@@ -292,5 +292,27 @@ namespace CurvaStore.Controllers
             _db.SaveChanges();
             return RedirectToAction("ViewMassages");
 		}
-	}
+        public async Task<IActionResult> ChangeRole(string id)
+        {
+            Changerole ?changerole =new Changerole();
+            changerole.userAndHisRole = new UserAndHisRole();
+            changerole.userAndHisRole.User = new CurvaUser();
+            changerole.userAndHisRole.User = _db.Users.FirstOrDefault(m => m.Id == id);
+            var rr=await _userManager.GetRolesAsync(changerole.userAndHisRole.User);
+            changerole.userAndHisRole.roles = rr.ToList();
+            changerole.Roles= _db.Roles.Select(m=>m.Name).ToList();
+            return View(changerole);
+        }
+        [HttpPost]
+        public async Task<IActionResult> ChangeRole(Changerole changeRole)
+        {
+            var user = await _userManager.FindByIdAsync(changeRole.userAndHisRole.User.Id);
+            var currentRoles = await _userManager.GetRolesAsync(user);
+            await _userManager.RemoveFromRolesAsync(user, currentRoles);
+            await _userManager.AddToRoleAsync(user, changeRole.roleName);
+            _db.SaveChanges();
+            return RedirectToAction("ViewUsers");
+        }
+
+    }
 }

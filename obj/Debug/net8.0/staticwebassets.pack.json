@@ -269,6 +269,10 @@
       "PackagePath": "staticwebassets\\images\\download (14).png"
     },
     {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (15).png",
+      "PackagePath": "staticwebassets\\images\\download (15).png"
+    },
+    {
       "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\download (2).png",
       "PackagePath": "staticwebassets\\images\\download (2).png"
     },
@@ -327,6 +331,10 @@
     {
       "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\main-cover.3543edb9.png",
       "PackagePath": "staticwebassets\\images\\main-cover.3543edb9.png"
+    },
+    {
+      "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\male.png",
+      "PackagePath": "staticwebassets\\images\\male.png"
     },
     {
       "Id": "C:\\Users\\karas\\Desktop\\CurvaStore\\wwwroot\\images\\our-story.7d98795c.png",

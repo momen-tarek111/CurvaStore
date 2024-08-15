@@ -61,6 +61,22 @@
                     }
                 }
             </div>
+            <div class="data action">
+                <span class="data-title">Action</span>
+                @{
+                    foreach (var item in Model)
+                    {
+                        <span class="data-list d-flex">
+                            @foreach (var item2 in item.roles)
+                            {
+                                <a asp-controller="DashBoard" asp-action="ChangeRole" asp-route-id="@item.User.Id">
+                                    <button type="button" class="btn btn-success">Change Role</button>
+                                </a>
+                            }
+                        </span>
+                    }
+                }
+            </div>
         </div>
     </div>
 </div>
