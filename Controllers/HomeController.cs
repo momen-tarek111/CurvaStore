@@ -554,6 +554,7 @@ namespace CurvaStore.Controllers
             _db.SaveChanges();
             return Ok(wishList.id);
         }
+
         public IActionResult ViewWishList(int? currPage,int sortId=5)
         {
             if (SignInManager.IsSignedIn(User) && _db.Users.FirstOrDefault(m => m.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Img != null)
