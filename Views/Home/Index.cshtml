@@ -149,7 +149,7 @@
                     <button type="button" class="btn">View All</button>
                 </a>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-between carousel">
                 @{
                     foreach(var item in Model.products)
                     {
@@ -157,8 +157,8 @@
                         {
                             if (item.OldPrice != 0)
                             {
-                                <a asp-controller="Home" asp-action="SingleProduct" asp-route-id="@item.Id" class="card m-auto mb-5" style="width:300px;display:block">
-                                    <div style="padding: 0 30px; height:300px"><img class="card-img-top" src="~/images/@item.Img" alt="Card image" style="height:100%"></div>
+                                <a asp-controller="Home" asp-action="SingleProduct" asp-route-id="@item.Id" class="card m-auto mb-5 carousel-cell mx-3" style="width:300px;display:block">
+                                    <div style="padding: 0 20px; height:300px"><img class="card-img-top" src="~/images/@item.Img" alt="Card image" style="height:100%"></div>
                                     <div class="card-body">
                                         <p class="product-details-p" style="white-space: nowrap;overflow: hidden;">@item.Name</p>
                                         <p class="d-inline-block me-5 mb-0"><span class="price">@item.price</span><span class="e">EGP</span></p>
@@ -175,8 +175,8 @@
                             }
                             else
                             {
-                                <a asp-controller="Home" asp-action="SingleProduct" asp-route-id="@item.Id" class="card m-auto mb-5" style="width:300px;display:block">
-                                    <div style="padding: 0 30px; height:300px"><img class="card-img-top" src="~/images/@item.Img" alt="Card image" style="height:100%"></div>
+                                <a asp-controller="Home" asp-action="SingleProduct" asp-route-id="@item.Id" class="card m-auto mb-5 carousel-cell mx-3" style="width:300px;display:block">
+                                    <div style="padding: 0 20px; height:300px"><img class="card-img-top" src="~/images/@item.Img" alt="Card image" style="height:100%"></div>
                                     <div class="card-body">
                                         <p class="product-details-p" style="white-space: nowrap;overflow: hidden;">@item.Name</p>
                                         <p class="d-inline-block me-5 mb-0"><span class="price">@item.price</span><span class="e">EGP</span></p>
@@ -344,3 +344,35 @@
         </div>
     </div>
 </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elem = document.querySelector('.carousel');
+        var flkty = new Flickity(elem, {
+            cellAlign: 'left',
+            contain: true,
+            wrapAround: false,
+            groupCells: 0,  // Show 3 items at a time
+            pageDots: false,
+            prevNextButtons: false,
+            freeScroll: false,  // Allows smooth scrolling
+        });
+    });
+    function getGroupCells() {
+        var width = window.innerWidth;
+        if (width >= 1200) {
+            return 4; // 4 items for large screens
+        } else if (width >= 768) {
+            return 3; // 3 items for medium screens
+        } else {
+            return 1; // 1 item for small screens
+        }
+    }
+
+    // Update Flickity settings on window resize
+    window.addEventListener('resize', function () {
+        flkty.options.groupCells = getGroupCells();
+        flkty.reloadCells();
+        flkty.resize();
+    });
+
+</script>

@@ -19,7 +19,7 @@ namespace CurvaStore.Controllers
         public IActionResult Index()
 		{
 			ProductsBlogs productsBlogs = new ProductsBlogs();
-			productsBlogs.products = _db.products.OrderBy(m=>m.Id).Reverse().Take(4).ToList();
+			productsBlogs.products = _db.products.OrderBy(m=>m.Id).Reverse().Take(8).ToList();
             productsBlogs.blogs = _db.blogs.OrderBy(m=>m.dateTime).Reverse().Take(3).ToList();
             productsBlogs.wishList =  _db.wishLists.Where(m=>m.UserId==User.FindFirstValue(ClaimTypes.NameIdentifier)).ToList();
             ViewData["numOfCart"] = _db.carts.Where(m => m.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Count();
